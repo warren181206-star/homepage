@@ -1,0 +1,361 @@
+<style>
+.best-section {
+  font-family: 'Pretendard', sans-serif;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 배경 대각선 패턴 */
+.best-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 10px,
+      rgba(255,255,255,0.02) 10px,
+      rgba(255,255,255,0.02) 20px
+    );
+  pointer-events: none;
+}
+
+.best-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 왼쪽 텍스트 영역 */
+.best-text {
+  flex: 0 0 300px;
+}
+
+.best-title {
+  font-size: 72px;
+  font-weight: 300;
+  font-style: italic;
+  color: #fff;
+  margin: 0 0 30px 0;
+  letter-spacing: 4px;
+}
+
+.best-desc {
+  color: #888;
+  font-size: 15px;
+  line-height: 1.8;
+  margin: 0 0 40px 0;
+}
+
+.best-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  border: 1px solid #fff;
+  border-radius: 50px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 0.3s ease;
+}
+
+.best-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* 제품 카드 영역 */
+.product-scroll {
+  flex: 1;
+  display: flex;
+  gap: 30px;
+  overflow-x: auto;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.product-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* 제품 카드 - 투명 배경 */
+.product-card {
+  flex: 0 0 320px;
+  background: transparent;
+  padding: 30px;
+  text-align: center;
+  scroll-snap-align: center;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  border-radius: 20px;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 중앙 큰 카드 */
+.product-card.featured {
+  flex: 0 0 400px;
+  padding: 40px;
+}
+
+.product-images {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+/* 골드바 이미지 (CSS로 생성) */
+.goldbar-img {
+  width: 80px;
+  height: 140px;
+  background: linear-gradient(145deg, #f5e6a3 0%, #d4af37 50%, #b8860b 100%);
+  border-radius: 6px;
+  position: relative;
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.5),
+    inset 0 -2px 4px rgba(0,0,0,0.1),
+    0 8px 30px rgba(201, 169, 133, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover .goldbar-img {
+  transform: translateY(-5px);
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.5),
+    inset 0 -2px 4px rgba(0,0,0,0.1),
+    0 15px 40px rgba(201, 169, 133, 0.5);
+}
+
+.goldbar-img.front::before {
+  content: 'KOREA\AGOLD\AEXCHANGE\A한국금거래소\A\AFINE GOLD\A999.9';
+  white-space: pre;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 7px;
+  color: #8B7355;
+  text-align: center;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.goldbar-img.back {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 5px,
+      rgba(139, 115, 85, 0.1) 5px,
+      rgba(139, 115, 85, 0.1) 10px
+    ),
+    linear-gradient(145deg, #f5e6a3 0%, #d4af37 50%, #b8860b 100%);
+}
+
+.goldbar-img.back::before {
+  content: 'Au';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: #8B7355;
+  font-weight: bold;
+  border: 2px solid #8B7355;
+  padding: 8px 12px;
+}
+
+.product-card.featured .goldbar-img {
+  width: 120px;
+  height: 200px;
+}
+
+.product-card.featured .goldbar-img.front::before {
+  font-size: 10px;
+}
+
+.product-card.featured .goldbar-img.back::before {
+  font-size: 22px;
+  padding: 12px 16px;
+}
+
+/* 텍스트 - 흰색으로 변경 */
+.product-name {
+  font-size: 15px;
+  color: #ccc;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+}
+
+.product-name strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.product-price {
+  font-size: 20px;
+  color: #c9a985;
+  font-weight: 700;
+  margin: 0;
+}
+
+.product-card.featured .product-name {
+  font-size: 18px;
+}
+
+.product-card.featured .product-price {
+  font-size: 26px;
+}
+
+/* 링크 아이콘 */
+.link-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(201, 169, 133, 0.15);
+  border: 1px solid rgba(201, 169, 133, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto 0;
+  color: #c9a985;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.product-card:hover .link-icon {
+  background: #c9a985;
+  color: #000;
+  border-color: #c9a985;
+}
+
+/* 반응형 */
+@media (max-width: 1024px) {
+  .best-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .best-text {
+    flex: none;
+    width: 100%;
+    text-align: center;
+  }
+
+  .best-title {
+    font-size: 48px;
+  }
+
+  .product-scroll {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .best-section {
+    padding: 60px 20px;
+  }
+
+  .product-card {
+    flex: 0 0 280px;
+  }
+
+  .product-card.featured {
+    flex: 0 0 320px;
+  }
+}
+</style>
+
+<div class="best-section">
+  <div class="best-container">
+
+    <!-- 왼쪽 텍스트 -->
+    <div class="best-text">
+      <h2 class="best-title">BEST</h2>
+      <p class="best-desc">
+        한국금거래소 공식 인증 골드바.<br>
+        999.9 순금으로 제작된 프리미엄<br>
+        골드바를 만나보세요.
+      </p>
+      <a href="https://www.koreagoldx.co.kr" target="_blank" class="best-btn">BUY NOW</a>
+    </div>
+
+    <!-- 제품 카드들 -->
+    <div class="product-scroll">
+
+      <!-- 10g 골드바 -->
+      <a href="https://www.koreagoldx.co.kr/product/6" target="_blank" class="product-card">
+        <div class="product-images">
+          <div class="goldbar-img front"></div>
+          <div class="goldbar-img back"></div>
+        </div>
+        <p class="product-name">한국금거래소 골드바 <strong>10g</strong></p>
+        <p class="product-price">2,388,000원</p>
+        <div class="link-icon">→</div>
+      </a>
+
+      <!-- 37.5g 골드바 (중앙, 크게) -->
+      <a href="https://www.koreagoldx.co.kr/product/6" target="_blank" class="product-card featured">
+        <div class="product-images">
+          <div class="goldbar-img front"></div>
+          <div class="goldbar-img back"></div>
+        </div>
+        <p class="product-name">한국금거래소 골드바 <strong>37.5g</strong></p>
+        <p class="product-price">8,889,000원</p>
+        <div class="link-icon">→</div>
+      </a>
+
+      <!-- 1000g 골드바 -->
+      <a href="https://www.koreagoldx.co.kr/product/6" target="_blank" class="product-card">
+        <div class="product-images">
+          <div class="goldbar-img front"></div>
+          <div class="goldbar-img back"></div>
+        </div>
+        <p class="product-name">한국금거래소 골드바 <strong>1000g</strong></p>
+        <p class="product-price">233,457,000원</p>
+        <div class="link-icon">→</div>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+// 카드 등장 애니메이션
+const cards = document.querySelectorAll('.product-card');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }, index * 150);
+    }
+  });
+}, { threshold: 0.2 });
+
+cards.forEach(card => {
+  card.style.opacity = '0';
+  card.style.transform = 'translateY(40px)';
+  card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+  observer.observe(card);
+});
+</script>
