@@ -39,14 +39,6 @@
 .best-header {
   text-align: center;
   margin-bottom: 60px;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.best-header.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .best-title {
@@ -102,17 +94,7 @@
   display: block;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 0.5s ease-out,
-              transform 0.5s ease-out,
-              background 0.3s ease,
-              border-color 0.3s ease;
-}
-
-.product-card.visible {
-  opacity: 1;
-  transform: translateY(0);
+  transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
 }
 
 .product-card:hover {
@@ -290,30 +272,3 @@
   </div>
 </div>
 
-<script>
-// 더 빠른 반응 - threshold 낮추고 rootMargin 조정
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.01, rootMargin: '100px 0px 100px 0px' });
-
-// 헤더
-const header = document.querySelector('.best-header');
-if (header) observer.observe(header);
-
-// 카드 - stagger 간격 줄임
-document.querySelectorAll('.product-card').forEach((card, i) => {
-  card.style.transitionDelay = `${i * 0.05}s`;
-  observer.observe(card);
-});
-
-// Fallback - 1초 후에도 안 보이면 강제로 보이게
-setTimeout(() => {
-  document.querySelectorAll('.best-header, .product-card').forEach(el => {
-    el.classList.add('visible');
-  });
-}, 1000);
-</script>
