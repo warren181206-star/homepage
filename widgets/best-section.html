@@ -35,6 +35,14 @@
 .best-header {
   text-align: center;
   margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.best-header.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .best-title {
@@ -79,11 +87,6 @@
   justify-items: center;
 }
 
-/* 7개 중 마지막 1개 가운데 정렬 */
-.product-grid .product-card:last-child {
-  grid-column: 2;
-}
-
 /* 제품 카드 */
 .product-card {
   width: 100%;
@@ -91,17 +94,29 @@
   background: rgba(255, 255, 255, 0.02);
   padding: 32px;
   text-align: center;
-  transition: transform 0.3s ease, background 0.3s ease;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
   display: block;
   border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.05);
+
+  /* 초기 상태 - 애니메이션 */
+  opacity: 0;
+  transform: translateY(80px) scale(0.95);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 .product-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-10px) scale(1.02);
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(201, 169, 133, 0.3);
 }
@@ -112,13 +127,13 @@
   height: 220px;
   object-fit: contain;
   margin-bottom: 24px;
-  transition: transform 0.3s ease;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
   filter: drop-shadow(0 8px 20px rgba(201, 169, 133, 0.3));
 }
 
 .product-card:hover img {
-  transform: scale(1.08);
-  filter: drop-shadow(0 12px 30px rgba(201, 169, 133, 0.5));
+  transform: scale(1.1) translateY(-5px);
+  filter: drop-shadow(0 20px 40px rgba(201, 169, 133, 0.5));
 }
 
 /* 텍스트 */
@@ -154,23 +169,20 @@
   margin: 0 auto;
   color: #c9a985;
   font-size: 18px;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .product-card:hover .link-icon {
   background: #c9a985;
   color: #000;
   border-color: #c9a985;
+  transform: scale(1.1);
 }
 
 /* 반응형 - 태블릿 */
 @media (max-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .product-grid .product-card:last-child {
-    grid-column: auto;
   }
 
   .best-title {
@@ -283,3 +295,30 @@
 
   </div>
 </div>
+
+<script>
+// 스크롤 애니메이션 (Apple/Tesla 스타일)
+const observerOptions = {
+  threshold: 0.15,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+// 헤더 애니메이션
+const header = document.querySelector('.best-header');
+if (header) observer.observe(header);
+
+// 카드 애니메이션 (stagger 효과)
+const cards = document.querySelectorAll('.product-card');
+cards.forEach((card, index) => {
+  card.style.transitionDelay = `${index * 0.1}s`;
+  observer.observe(card);
+});
+</script>
