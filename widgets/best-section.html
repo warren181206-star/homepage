@@ -90,7 +90,7 @@
 
 /* 제품 카드 - 투명 배경 */
 .product-card {
-  flex: 0 0 320px;
+  flex: 0 0 280px;
   background: transparent;
   padding: 30px;
   text-align: center;
@@ -110,93 +110,35 @@
 
 /* 중앙 큰 카드 */
 .product-card.featured {
-  flex: 0 0 400px;
+  flex: 0 0 350px;
   padding: 40px;
 }
 
 .product-images {
   display: flex;
   justify-content: center;
-  gap: 16px;
   margin-bottom: 24px;
 }
 
-/* 골드바 이미지 (CSS로 생성) */
+/* 골드바 이미지 */
 .goldbar-img {
-  width: 80px;
-  height: 140px;
-  background: linear-gradient(145deg, #f5e6a3 0%, #d4af37 50%, #b8860b 100%);
+  width: 160px;
+  height: auto;
   border-radius: 6px;
-  position: relative;
-  box-shadow:
-    inset 0 2px 4px rgba(255,255,255,0.5),
-    inset 0 -2px 4px rgba(0,0,0,0.1),
-    0 8px 30px rgba(201, 169, 133, 0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  filter: drop-shadow(0 8px 30px rgba(201, 169, 133, 0.4));
 }
 
 .product-card:hover .goldbar-img {
   transform: translateY(-5px);
-  box-shadow:
-    inset 0 2px 4px rgba(255,255,255,0.5),
-    inset 0 -2px 4px rgba(0,0,0,0.1),
-    0 15px 40px rgba(201, 169, 133, 0.5);
-}
-
-.goldbar-img.front::before {
-  content: 'KOREA\AGOLD\AEXCHANGE\A한국금거래소\A\AFINE GOLD\A999.9';
-  white-space: pre;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 7px;
-  color: #8B7355;
-  text-align: center;
-  line-height: 1.6;
-  font-weight: bold;
-}
-
-.goldbar-img.back {
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 5px,
-      rgba(139, 115, 85, 0.1) 5px,
-      rgba(139, 115, 85, 0.1) 10px
-    ),
-    linear-gradient(145deg, #f5e6a3 0%, #d4af37 50%, #b8860b 100%);
-}
-
-.goldbar-img.back::before {
-  content: 'Au';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 16px;
-  color: #8B7355;
-  font-weight: bold;
-  border: 2px solid #8B7355;
-  padding: 8px 12px;
+  filter: drop-shadow(0 15px 40px rgba(201, 169, 133, 0.5));
 }
 
 .product-card.featured .goldbar-img {
-  width: 120px;
-  height: 200px;
+  width: 220px;
 }
 
-.product-card.featured .goldbar-img.front::before {
-  font-size: 10px;
-}
-
-.product-card.featured .goldbar-img.back::before {
-  font-size: 22px;
-  padding: 12px 16px;
-}
-
-/* 텍스트 - 흰색으로 변경 */
+/* 텍스트 */
 .product-name {
   font-size: 15px;
   color: #ccc;
@@ -210,7 +152,7 @@
 }
 
 .product-price {
-  font-size: 20px;
+  font-size: 18px;
   color: #c9a985;
   font-weight: 700;
   margin: 0;
@@ -221,7 +163,7 @@
 }
 
 .product-card.featured .product-price {
-  font-size: 26px;
+  font-size: 22px;
 }
 
 /* 링크 아이콘 */
@@ -274,11 +216,19 @@
   }
 
   .product-card {
-    flex: 0 0 280px;
+    flex: 0 0 240px;
   }
 
   .product-card.featured {
-    flex: 0 0 320px;
+    flex: 0 0 280px;
+  }
+
+  .goldbar-img {
+    width: 140px;
+  }
+
+  .product-card.featured .goldbar-img {
+    width: 180px;
   }
 }
 </style>
@@ -300,36 +250,73 @@
     <!-- 제품 카드들 -->
     <div class="product-scroll">
 
+      <!-- 1.875g 골드바 -->
+      <a href="https://www.koreagoldx.co.kr/product/2" target="_blank" class="product-card">
+        <div class="product-images">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/1.875g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="1.875g 골드바" class="goldbar-img">
+        </div>
+        <p class="product-name">한국금거래소 골드바 <strong>1.875g</strong></p>
+        <p class="product-price">시세변동</p>
+        <div class="link-icon">→</div>
+      </a>
+
+      <!-- 3.75g 골드바 -->
+      <a href="https://www.koreagoldx.co.kr/product/3" target="_blank" class="product-card">
+        <div class="product-images">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/3.75g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="3.75g 골드바" class="goldbar-img">
+        </div>
+        <p class="product-name">한국금거래소 골드바 <strong>3.75g</strong></p>
+        <p class="product-price">시세변동</p>
+        <div class="link-icon">→</div>
+      </a>
+
       <!-- 10g 골드바 -->
       <a href="https://www.koreagoldx.co.kr/product/6" target="_blank" class="product-card">
         <div class="product-images">
-          <div class="goldbar-img front"></div>
-          <div class="goldbar-img back"></div>
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/10g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="10g 골드바" class="goldbar-img">
         </div>
         <p class="product-name">한국금거래소 골드바 <strong>10g</strong></p>
-        <p class="product-price">2,388,000원</p>
+        <p class="product-price">시세변동</p>
+        <div class="link-icon">→</div>
+      </a>
+
+      <!-- 18.75g 골드바 -->
+      <a href="https://www.koreagoldx.co.kr/product/8" target="_blank" class="product-card">
+        <div class="product-images">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/18.75g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="18.75g 골드바" class="goldbar-img">
+        </div>
+        <p class="product-name">한국금거래소 골드바 <strong>18.75g</strong></p>
+        <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
       </a>
 
       <!-- 37.5g 골드바 (중앙, 크게) -->
-      <a href="https://www.koreagoldx.co.kr/product/6" target="_blank" class="product-card featured">
+      <a href="https://www.koreagoldx.co.kr/product/9" target="_blank" class="product-card featured">
         <div class="product-images">
-          <div class="goldbar-img front"></div>
-          <div class="goldbar-img back"></div>
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/37.5g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="37.5g 골드바" class="goldbar-img">
         </div>
         <p class="product-name">한국금거래소 골드바 <strong>37.5g</strong></p>
-        <p class="product-price">8,889,000원</p>
+        <p class="product-price">시세변동</p>
+        <div class="link-icon">→</div>
+      </a>
+
+      <!-- 100g 골드바 -->
+      <a href="https://www.koreagoldx.co.kr/product/12" target="_blank" class="product-card">
+        <div class="product-images">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/100g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="100g 골드바" class="goldbar-img">
+        </div>
+        <p class="product-name">한국금거래소 골드바 <strong>100g</strong></p>
+        <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
       </a>
 
       <!-- 1000g 골드바 -->
-      <a href="https://www.koreagoldx.co.kr/product/6" target="_blank" class="product-card">
+      <a href="https://www.koreagoldx.co.kr/product/15" target="_blank" class="product-card">
         <div class="product-images">
-          <div class="goldbar-img front"></div>
-          <div class="goldbar-img back"></div>
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/1000g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="1000g 골드바" class="goldbar-img">
         </div>
         <p class="product-name">한국금거래소 골드바 <strong>1000g</strong></p>
-        <p class="product-price">233,457,000원</p>
+        <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
       </a>
 
