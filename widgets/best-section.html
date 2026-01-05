@@ -27,42 +27,40 @@
 .best-container {
   max-width: 1400px;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 60px;
   position: relative;
   z-index: 1;
 }
 
-/* 왼쪽 텍스트 영역 */
-.best-text {
-  flex: 0 0 280px;
+/* 상단 헤더 영역 */
+.best-header {
+  text-align: center;
+  margin-bottom: 60px;
 }
 
 .best-title {
-  font-size: 72px;
+  font-size: 80px;
   font-weight: 300;
   font-style: italic;
   color: #fff;
-  margin: 0 0 30px 0;
+  margin: 0 0 24px 0;
   letter-spacing: 4px;
 }
 
 .best-desc {
   color: #888;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.8;
-  margin: 0 0 40px 0;
+  margin: 0 0 36px 0;
 }
 
 .best-btn {
   display: inline-block;
-  padding: 16px 40px;
+  padding: 18px 48px;
   border: 1px solid #fff;
   border-radius: 50px;
   color: #fff;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   letter-spacing: 2px;
   transition: all 0.3s ease;
@@ -73,91 +71,80 @@
   color: #000;
 }
 
-/* 제품 카드 스크롤 영역 */
-.product-scroll {
-  flex: 1;
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  padding: 20px 10px;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: #c9a985 transparent;
+/* 제품 그리드 - 3열 */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  justify-items: center;
 }
 
-.product-scroll::-webkit-scrollbar {
-  height: 6px;
-}
-
-.product-scroll::-webkit-scrollbar-track {
-  background: rgba(255,255,255,0.1);
-  border-radius: 3px;
-}
-
-.product-scroll::-webkit-scrollbar-thumb {
-  background: #c9a985;
-  border-radius: 3px;
+/* 7개 중 마지막 1개 가운데 정렬 */
+.product-grid .product-card:last-child {
+  grid-column: 2;
 }
 
 /* 제품 카드 */
 .product-card {
-  flex: 0 0 220px;
-  background: transparent;
-  padding: 24px;
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 32px;
   text-align: center;
-  scroll-snap-align: center;
   transition: transform 0.3s ease, background 0.3s ease;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
   display: block;
-  border-radius: 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .product-card:hover {
-  transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(201, 169, 133, 0.3);
 }
 
-/* 골드바 이미지 - 모두 동일 크기 */
+/* 골드바 이미지 */
 .product-card img {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   object-fit: contain;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
   transition: transform 0.3s ease;
   filter: drop-shadow(0 8px 20px rgba(201, 169, 133, 0.3));
 }
 
 .product-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.08);
   filter: drop-shadow(0 12px 30px rgba(201, 169, 133, 0.5));
 }
 
 /* 텍스트 */
 .product-name {
-  font-size: 14px;
-  color: #ccc;
-  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: #bbb;
+  margin: 0 0 10px 0;
   font-weight: 400;
 }
 
 .product-name strong {
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .product-price {
-  font-size: 16px;
+  font-size: 22px;
   color: #c9a985;
   font-weight: 700;
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
 }
 
 /* 링크 아이콘 */
 .link-icon {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   background: rgba(201, 169, 133, 0.15);
   border: 1px solid rgba(201, 169, 133, 0.3);
   border-radius: 50%;
@@ -166,7 +153,7 @@
   justify-content: center;
   margin: 0 auto;
   color: #c9a985;
-  font-size: 14px;
+  font-size: 18px;
   transition: all 0.3s ease;
 }
 
@@ -176,41 +163,46 @@
   border-color: #c9a985;
 }
 
-/* 반응형 */
+/* 반응형 - 태블릿 */
 @media (max-width: 1024px) {
-  .best-container {
-    flex-direction: column;
-    align-items: flex-start;
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .best-text {
-    flex: none;
-    width: 100%;
-    text-align: center;
+  .product-grid .product-card:last-child {
+    grid-column: auto;
+  }
+
+  .best-title {
+    font-size: 60px;
+  }
+}
+
+/* 반응형 - 모바일 */
+@media (max-width: 768px) {
+  .best-section {
+    padding: 60px 20px;
+  }
+
+  .product-grid {
+    grid-template-columns: 1fr;
   }
 
   .best-title {
     font-size: 48px;
   }
 
-  .product-scroll {
-    width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .best-section {
-    padding: 60px 20px;
-  }
-
-  .product-card {
-    flex: 0 0 180px;
-    padding: 16px;
-  }
-
   .product-card img {
-    width: 140px;
-    height: 140px;
+    width: 180px;
+    height: 180px;
+  }
+
+  .product-name {
+    font-size: 16px;
+  }
+
+  .product-price {
+    font-size: 20px;
   }
 }
 </style>
@@ -218,19 +210,18 @@
 <div class="best-section">
   <div class="best-container">
 
-    <!-- 왼쪽 텍스트 -->
-    <div class="best-text">
+    <!-- 상단 헤더 -->
+    <div class="best-header">
       <h2 class="best-title">BEST</h2>
       <p class="best-desc">
         한국금거래소 공식 인증 골드바.<br>
-        999.9 순금으로 제작된 프리미엄<br>
-        골드바를 만나보세요.
+        999.9 순금으로 제작된 프리미엄 골드바를 만나보세요.
       </p>
       <a href="https://www.koreagoldx.co.kr" target="_blank" class="best-btn">BUY NOW</a>
     </div>
 
-    <!-- 제품 카드들 (가로 스크롤) -->
-    <div class="product-scroll">
+    <!-- 제품 그리드 (3열) -->
+    <div class="product-grid">
 
       <!-- 1.875g 골드바 -->
       <a href="https://www.koreagoldx.co.kr/product/2" target="_blank" class="product-card">
