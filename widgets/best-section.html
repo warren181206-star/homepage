@@ -6,7 +6,6 @@
   overflow: hidden;
 }
 
-/* 배경 대각선 패턴 */
 .best-section::before {
   content: '';
   position: absolute;
@@ -37,7 +36,7 @@
 
 /* 왼쪽 텍스트 영역 */
 .best-text {
-  flex: 0 0 300px;
+  flex: 0 0 280px;
 }
 
 .best-title {
@@ -74,73 +73,70 @@
   color: #000;
 }
 
-/* 제품 카드 영역 */
+/* 제품 카드 스크롤 영역 */
 .product-scroll {
   flex: 1;
   display: flex;
-  gap: 30px;
+  gap: 24px;
   overflow-x: auto;
-  padding: 20px 0;
+  padding: 20px 10px;
   scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #c9a985 transparent;
 }
 
 .product-scroll::-webkit-scrollbar {
-  display: none;
+  height: 6px;
 }
 
-/* 제품 카드 - 투명 배경 */
+.product-scroll::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.1);
+  border-radius: 3px;
+}
+
+.product-scroll::-webkit-scrollbar-thumb {
+  background: #c9a985;
+  border-radius: 3px;
+}
+
+/* 제품 카드 */
 .product-card {
-  flex: 0 0 280px;
+  flex: 0 0 220px;
   background: transparent;
-  padding: 30px;
+  padding: 24px;
   text-align: center;
   scroll-snap-align: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background 0.3s ease;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
   display: block;
-  border-radius: 20px;
+  border-radius: 16px;
 }
 
 .product-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
   background: rgba(255, 255, 255, 0.05);
 }
 
-/* 중앙 큰 카드 */
-.product-card.featured {
-  flex: 0 0 350px;
-  padding: 40px;
+/* 골드바 이미지 - 모두 동일 크기 */
+.product-card img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease;
+  filter: drop-shadow(0 8px 20px rgba(201, 169, 133, 0.3));
 }
 
-.product-images {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 24px;
-}
-
-/* 골드바 이미지 */
-.goldbar-img {
-  width: 160px;
-  height: auto;
-  border-radius: 6px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 8px 30px rgba(201, 169, 133, 0.4));
-}
-
-.product-card:hover .goldbar-img {
-  transform: translateY(-5px);
-  filter: drop-shadow(0 15px 40px rgba(201, 169, 133, 0.5));
-}
-
-.product-card.featured .goldbar-img {
-  width: 220px;
+.product-card:hover img {
+  transform: scale(1.05);
+  filter: drop-shadow(0 12px 30px rgba(201, 169, 133, 0.5));
 }
 
 /* 텍스트 */
 .product-name {
-  font-size: 15px;
+  font-size: 14px;
   color: #ccc;
   margin: 0 0 8px 0;
   font-weight: 400;
@@ -152,33 +148,25 @@
 }
 
 .product-price {
-  font-size: 18px;
+  font-size: 16px;
   color: #c9a985;
   font-weight: 700;
-  margin: 0;
-}
-
-.product-card.featured .product-name {
-  font-size: 18px;
-}
-
-.product-card.featured .product-price {
-  font-size: 22px;
+  margin: 0 0 16px 0;
 }
 
 /* 링크 아이콘 */
 .link-icon {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   background: rgba(201, 169, 133, 0.15);
   border: 1px solid rgba(201, 169, 133, 0.3);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px auto 0;
+  margin: 0 auto;
   color: #c9a985;
-  font-size: 16px;
+  font-size: 14px;
   transition: all 0.3s ease;
 }
 
@@ -216,19 +204,13 @@
   }
 
   .product-card {
-    flex: 0 0 240px;
+    flex: 0 0 180px;
+    padding: 16px;
   }
 
-  .product-card.featured {
-    flex: 0 0 280px;
-  }
-
-  .goldbar-img {
+  .product-card img {
     width: 140px;
-  }
-
-  .product-card.featured .goldbar-img {
-    width: 180px;
+    height: 140px;
   }
 }
 </style>
@@ -247,14 +229,12 @@
       <a href="https://www.koreagoldx.co.kr" target="_blank" class="best-btn">BUY NOW</a>
     </div>
 
-    <!-- 제품 카드들 -->
+    <!-- 제품 카드들 (가로 스크롤) -->
     <div class="product-scroll">
 
       <!-- 1.875g 골드바 -->
       <a href="https://www.koreagoldx.co.kr/product/2" target="_blank" class="product-card">
-        <div class="product-images">
-          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/1.875g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="1.875g 골드바" class="goldbar-img">
-        </div>
+        <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/1.875g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="1.875g 골드바">
         <p class="product-name">한국금거래소 골드바 <strong>1.875g</strong></p>
         <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
@@ -262,9 +242,7 @@
 
       <!-- 3.75g 골드바 -->
       <a href="https://www.koreagoldx.co.kr/product/3" target="_blank" class="product-card">
-        <div class="product-images">
-          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/3.75g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="3.75g 골드바" class="goldbar-img">
-        </div>
+        <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/3.75g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="3.75g 골드바">
         <p class="product-name">한국금거래소 골드바 <strong>3.75g</strong></p>
         <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
@@ -272,9 +250,7 @@
 
       <!-- 10g 골드바 -->
       <a href="https://www.koreagoldx.co.kr/product/6" target="_blank" class="product-card">
-        <div class="product-images">
-          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/10g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="10g 골드바" class="goldbar-img">
-        </div>
+        <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/10g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="10g 골드바">
         <p class="product-name">한국금거래소 골드바 <strong>10g</strong></p>
         <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
@@ -282,19 +258,15 @@
 
       <!-- 18.75g 골드바 -->
       <a href="https://www.koreagoldx.co.kr/product/8" target="_blank" class="product-card">
-        <div class="product-images">
-          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/18.75g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="18.75g 골드바" class="goldbar-img">
-        </div>
+        <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/18.75g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="18.75g 골드바">
         <p class="product-name">한국금거래소 골드바 <strong>18.75g</strong></p>
         <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
       </a>
 
-      <!-- 37.5g 골드바 (중앙, 크게) -->
-      <a href="https://www.koreagoldx.co.kr/product/9" target="_blank" class="product-card featured">
-        <div class="product-images">
-          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/37.5g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="37.5g 골드바" class="goldbar-img">
-        </div>
+      <!-- 37.5g 골드바 -->
+      <a href="https://www.koreagoldx.co.kr/product/9" target="_blank" class="product-card">
+        <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/37.5g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="37.5g 골드바">
         <p class="product-name">한국금거래소 골드바 <strong>37.5g</strong></p>
         <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
@@ -302,9 +274,7 @@
 
       <!-- 100g 골드바 -->
       <a href="https://www.koreagoldx.co.kr/product/12" target="_blank" class="product-card">
-        <div class="product-images">
-          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/100g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="100g 골드바" class="goldbar-img">
-        </div>
+        <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/100g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="100g 골드바">
         <p class="product-name">한국금거래소 골드바 <strong>100g</strong></p>
         <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
@@ -312,9 +282,7 @@
 
       <!-- 1000g 골드바 -->
       <a href="https://www.koreagoldx.co.kr/product/15" target="_blank" class="product-card">
-        <div class="product-images">
-          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/1000g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="1000g 골드바" class="goldbar-img">
-        </div>
+        <img src="https://raw.githubusercontent.com/warren181206-star/homepage/claude/website-widget-html-wsT8N/images/goldbar/1000g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="1000g 골드바">
         <p class="product-name">한국금거래소 골드바 <strong>1000g</strong></p>
         <p class="product-price">시세변동</p>
         <div class="link-icon">→</div>
@@ -324,25 +292,3 @@
 
   </div>
 </div>
-
-<script>
-// 카드 등장 애니메이션
-const cards = document.querySelectorAll('.product-card');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, index) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-      }, index * 150);
-    }
-  });
-}, { threshold: 0.2 });
-
-cards.forEach(card => {
-  card.style.opacity = '0';
-  card.style.transform = 'translateY(40px)';
-  card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(card);
-});
-</script>
