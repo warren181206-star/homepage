@@ -21,9 +21,16 @@ homepage/
 │   ├── souvenir.html         # 기념품 (제품안내 > 기념품)
 │   ├── refining.html         # 금·은정련
 │   └── notice.html           # 공지사항
-├── images/
-│   ├── goldbar/
-│   └── footer/
+├── images/                   # 페이지별 이미지 폴더
+│   ├── home/
+│   ├── gold-consulting/
+│   ├── consignment/
+│   ├── buy-back/
+│   ├── gold-bar/
+│   ├── silver-bar/
+│   ├── souvenir/
+│   ├── refining/
+│   └── notice/
 └── README.md
 ```
 
