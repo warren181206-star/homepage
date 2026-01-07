@@ -47,6 +47,22 @@ homepage/
 https://raw.githubusercontent.com/warren181206-star/homepage/main/images/폴더명/파일명
 ```
 
+## 페이지 URL 정보
+
+기본 URL: `https://goldinsight053.imweb.me`
+
+| 파일명 | 메뉴명 | URL |
+|--------|--------|-----|
+| home.html | 메인 페이지 | `/` |
+| gold-consulting.html | 금투자상담 | `/gold-consulting` |
+| consignment.html | 위탁거래 | `/consignment` |
+| buy-back.html | 금매입상담 | `/buy-back` |
+| gold-bar.html | 골드바 | `/gold-bar` |
+| silver-bar.html | 실버바 | `/silver-bar` |
+| souvenir.html | 기념품 | `/souvenir` |
+| refining.html | 금·은정련 | `/refining` |
+| notice.html | 공지사항 | `/notice` |
+
 ## 메뉴 수정
 
-`_config/pages.md` 수정 후 Claude에게 header.html 업데이트 요청
+`_config/pages.md` 또는 위 URL 정보 수정 후 Claude에게 header.html 업데이트 요청
