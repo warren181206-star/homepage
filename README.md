@@ -12,15 +12,15 @@ homepage/
 │   ├── header.html       # 공통 헤더 (반복섹션용)
 │   └── footer.html       # 공통 푸터 (반복섹션용)
 ├── pages/
-│   ├── home.html         # 메인 페이지
-│   ├── gold-consulting.html
-│   ├── consignment.html
-│   ├── buy-back.html
-│   ├── gold-bar.html
-│   ├── silver-bar.html
-│   ├── souvenir.html
-│   ├── refining.html
-│   └── notice.html
+│   ├── home.html             # 메인 페이지
+│   ├── gold-consulting.html  # 금투자상담 (골드인사이트 > 금투자상담)
+│   ├── consignment.html      # 위탁거래
+│   ├── buy-back.html         # 금매입상담 (금·은 매입 > 금매입상담)
+│   ├── gold-bar.html         # 골드바 (제품안내 > 골드바)
+│   ├── silver-bar.html       # 실버바 (제품안내 > 실버바)
+│   ├── souvenir.html         # 기념품 (제품안내 > 기념품)
+│   ├── refining.html         # 금·은정련
+│   └── notice.html           # 공지사항
 ├── images/
 │   ├── goldbar/
 │   └── footer/
