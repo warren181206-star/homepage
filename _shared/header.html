@@ -1,28 +1,41 @@
 <!--
   공통 헤더 (반복섹션용)
-  메뉴 수정 시 _config/pages.md 참고
+
+  [중요 규칙]
+  - position: fixed + top: 0 + z-index: 999999 로 강제 상단 고정
+  - 아임웹 유령 영역 제거 스타일 필수
+  - 모바일 반응형 필수 (768px 기준)
+
+  메뉴 URL은 README.md 페이지 URL 정보 참고
 -->
 <div class="k-gold-header" id="kGoldFixedHeader">
   <div class="k-gold-container">
-    <a href="/" class="k-logo">한국금거래소 <span class="m-hide">경산점</span></a>
+    <a href="/home" class="k-logo">한국금거래소 <span class="m-hide">경산점</span></a>
 
     <nav class="k-nav-wrapper">
       <ul class="k-nav">
+        <!-- 골드인사이트 (하위: 금투자상담) -->
         <li class="k-menu-item has-sub">
           <a href="/gold-insight">골드인사이트</a>
           <ul class="k-sub">
             <li><a href="/gold-consulting">금투자상담</a></li>
           </ul>
         </li>
+
+        <!-- 위탁거래 -->
         <li class="k-menu-item">
           <a href="/consignment">위탁거래</a>
         </li>
+
+        <!-- 금·은 매입 (하위: 금매입상담) -->
         <li class="k-menu-item has-sub">
-          <a href="/buy-sell">금·은 매입</a>
+          <a href="/buy-sell">금·은매입</a>
           <ul class="k-sub">
             <li><a href="/buy-back">금매입상담</a></li>
           </ul>
         </li>
+
+        <!-- 제품안내 (하위: 골드바, 실버바, 기념품) -->
         <li class="k-menu-item has-sub">
           <a href="/products">제품안내</a>
           <ul class="k-sub">
@@ -31,23 +44,73 @@
             <li><a href="/souvenir">기념품</a></li>
           </ul>
         </li>
+
+        <!-- 금·은정련 -->
         <li class="k-menu-item">
           <a href="/refining">금·은정련</a>
         </li>
+
+        <!-- 공지사항 -->
         <li class="k-menu-item">
           <a href="/notice">공지사항</a>
         </li>
       </ul>
     </nav>
 
+    <!-- 모바일 햄버거 메뉴 버튼 -->
+    <button class="k-mobile-toggle" id="kMobileToggle" aria-label="메뉴 열기">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <div class="k-extra">
-      <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/rotating-gold.png" class="rotating-gold" id="scrollGold" alt="goldbar">
+      <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/home/goldbar-icon.png" class="rotating-gold" id="scrollGold" alt="goldbar">
     </div>
   </div>
 </div>
 
+<!-- 모바일 메뉴 오버레이 -->
+<div class="k-mobile-overlay" id="kMobileOverlay"></div>
+
+<!-- 모바일 사이드 메뉴 -->
+<nav class="k-mobile-nav" id="kMobileNav">
+  <div class="k-mobile-nav-header">
+    <span class="k-mobile-nav-title">메뉴</span>
+    <button class="k-mobile-close" id="kMobileClose" aria-label="메뉴 닫기">&times;</button>
+  </div>
+  <ul class="k-mobile-menu">
+    <li><a href="/home">홈</a></li>
+    <li class="k-mobile-has-sub">
+      <a href="/gold-insight">골드인사이트</a>
+      <ul class="k-mobile-sub">
+        <li><a href="/gold-consulting">금투자상담</a></li>
+      </ul>
+    </li>
+    <li><a href="/consignment">위탁거래</a></li>
+    <li class="k-mobile-has-sub">
+      <a href="/buy-sell">금·은매입</a>
+      <ul class="k-mobile-sub">
+        <li><a href="/buy-back">금매입상담</a></li>
+      </ul>
+    </li>
+    <li class="k-mobile-has-sub">
+      <a href="/products">제품안내</a>
+      <ul class="k-mobile-sub">
+        <li><a href="/gold-bar">골드바</a></li>
+        <li><a href="/silver-bar">실버바</a></li>
+        <li><a href="/souvenir">기념품</a></li>
+      </ul>
+    </li>
+    <li><a href="/refining">금·은정련</a></li>
+    <li><a href="/notice">공지사항</a></li>
+  </ul>
+</nav>
+
 <style>
-.k-gold-header, .k-gold-header * {
+/* ===== 1. 리셋 및 기본 설정 ===== */
+.k-gold-header, .k-gold-header *,
+.k-mobile-nav, .k-mobile-nav * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -55,6 +118,7 @@
   text-decoration: none !important;
 }
 
+/* ===== 2. 헤더 - 강제 상단 고정 (필수) ===== */
 .k-gold-header {
   position: fixed !important;
   top: 0 !important;
@@ -75,19 +139,26 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
+/* ===== 3. 로고 ===== */
 .k-logo {
   font-size: 18px;
   font-weight: 800;
-  color: #b8860b;
+  color: #b8860b !important;
   white-space: nowrap;
+  transition: color 0.2s;
 }
 
+.k-logo:hover {
+  color: #9a7209 !important;
+}
+
+/* ===== 4. PC 네비게이션 ===== */
 .k-nav {
   display: flex !important;
-  gap: 20px;
+  gap: 8px;
 }
 
 .k-menu-item {
@@ -98,63 +169,233 @@
 }
 
 .k-menu-item > a {
-  color: #333;
+  color: #333 !important;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s;
 }
 
+.k-menu-item > a:hover {
+  color: #b8860b !important;
+  background-color: #faf6ef;
+}
+
+/* ===== 5. 드롭다운 서브메뉴 ===== */
 .k-sub {
   position: absolute;
   top: 70px;
   left: 50%;
   transform: translateX(-50%);
   background: #ffffff;
-  min-width: 130px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  padding: 10px 0;
+  min-width: 140px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 8px 0;
   opacity: 0;
   visibility: hidden;
-  transition: 0.2s;
-  border-top: 2px solid #b8860b;
+  transition: all 0.2s ease;
+  border-top: 3px solid #b8860b;
+  border-radius: 0 0 8px 8px;
 }
 
-@media (min-width: 768px) {
-  .k-menu-item:hover .k-sub {
-    opacity: 1;
-    visibility: visible;
-  }
+.k-menu-item:hover .k-sub {
+  opacity: 1;
+  visibility: visible;
 }
 
 .k-sub li a {
   display: block;
-  padding: 10px 15px;
-  font-size: 13px;
-  color: #666;
+  padding: 12px 20px;
+  font-size: 14px;
+  color: #555 !important;
+  transition: all 0.2s;
+}
+
+.k-sub li a:hover {
+  color: #b8860b !important;
+  background-color: #faf6ef;
+}
+
+/* ===== 6. 골드바 아이콘 ===== */
+.k-extra {
+  display: flex;
+  align-items: center;
 }
 
 .rotating-gold {
-  width: 30px;
-  height: auto;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: transform 0.1s linear;
 }
 
-/* 반응형 */
+/* ===== 7. 모바일 햄버거 버튼 ===== */
+.k-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 28px;
+  height: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.k-mobile-toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ===== 8. 모바일 오버레이 ===== */
+.k-mobile-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 999998;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.k-mobile-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* ===== 9. 모바일 사이드 메뉴 ===== */
+.k-mobile-nav {
+  position: fixed;
+  top: 0;
+  right: -280px;
+  width: 280px;
+  height: 100%;
+  background: #ffffff;
+  z-index: 1000000;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+}
+
+.k-mobile-nav.active {
+  right: 0;
+}
+
+.k-mobile-nav-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #eee;
+  background: #faf6ef;
+}
+
+.k-mobile-nav-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #b8860b;
+}
+
+.k-mobile-close {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+}
+
+.k-mobile-menu {
+  padding: 10px 0;
+}
+
+.k-mobile-menu > li > a {
+  display: block;
+  padding: 15px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333 !important;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.k-mobile-menu > li > a:hover {
+  color: #b8860b !important;
+  background: #faf6ef;
+}
+
+.k-mobile-sub {
+  background: #f9f9f9;
+}
+
+.k-mobile-sub li a {
+  display: block;
+  padding: 12px 20px 12px 35px;
+  font-size: 14px;
+  color: #666 !important;
+  border-bottom: 1px solid #eee;
+}
+
+.k-mobile-sub li a:hover {
+  color: #b8860b !important;
+}
+
+/* ===== 10. 반응형 - 모바일 (768px 이하) ===== */
 @media (max-width: 767px) {
-  .k-gold-header { height: 60px; }
-  .k-menu-item { height: 60px; }
-  .k-logo { font-size: 15px; }
-  .m-hide { display: none; }
-  .k-nav { gap: 12px; }
-  .k-menu-item > a { font-size: 13px; }
-  .k-sub { display: none !important; }
-  .k-extra { padding-left: 10px; }
-  .rotating-gold { width: 25px; }
-  body { padding-top: 60px !important; }
+  .k-gold-header {
+    height: 60px;
+  }
+
+  .k-gold-container {
+    padding: 0 15px;
+  }
+
+  .k-logo {
+    font-size: 16px;
+  }
+
+  .m-hide {
+    display: none;
+  }
+
+  .k-nav-wrapper {
+    display: none;
+  }
+
+  .k-mobile-toggle {
+    display: flex;
+  }
+
+  .k-extra {
+    display: none;
+  }
+
+  body {
+    padding-top: 60px !important;
+  }
 }
 
+/* ===== 11. 반응형 - PC (768px 이상) ===== */
 @media (min-width: 768px) {
-  body { padding-top: 70px !important; }
+  body {
+    padding-top: 70px !important;
+  }
+
+  .k-mobile-nav,
+  .k-mobile-overlay {
+    display: none !important;
+  }
 }
 
+/* ===== 12. 아임웹 유령 영역 제거 (필수) ===== */
 .section-wrap:has(#kGoldFixedHeader) {
   height: 0 !important;
   min-height: 0 !important;
@@ -167,12 +408,41 @@
 
 <script>
 (function() {
+  // 스크롤 시 골드바 아이콘 회전
   window.addEventListener('scroll', function() {
-    const rotation = window.scrollY / 4;
-    const goldIcon = document.getElementById('scrollGold');
+    var rotation = window.scrollY / 4;
+    var goldIcon = document.getElementById('scrollGold');
     if (goldIcon) {
       goldIcon.style.transform = 'rotate(' + rotation + 'deg)';
     }
   });
+
+  // 모바일 메뉴 토글
+  var mobileToggle = document.getElementById('kMobileToggle');
+  var mobileNav = document.getElementById('kMobileNav');
+  var mobileOverlay = document.getElementById('kMobileOverlay');
+  var mobileClose = document.getElementById('kMobileClose');
+
+  function openMobileMenu() {
+    mobileNav.classList.add('active');
+    mobileOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileNav.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  if (mobileToggle) {
+    mobileToggle.addEventListener('click', openMobileMenu);
+  }
+  if (mobileClose) {
+    mobileClose.addEventListener('click', closeMobileMenu);
+  }
+  if (mobileOverlay) {
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+  }
 })();
 </script>

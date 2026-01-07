@@ -59,7 +59,7 @@ https://raw.githubusercontent.com/warren181206-star/homepage/main/images/폴더�
 
 | 파일명                  | 메뉴명     | URL                |
 | -------------------- | ------- | ------------------ |
-| home.html            | 메인 페이지  | `/`                |
+| home.html            | 메인 페이지  | `/home`            |
 | gold-insight.html    | 골드인사이트  | `/gold-insight`    |
 | gold-consulting.html | ㄴ 금투자상담 | `/gold-consulting` |
 | consignment.html     | 위탁거래    | `/consignment`     |
