@@ -13,19 +13,25 @@ homepage/
 │   └── footer.html       # 공통 푸터 (반복섹션용)
 ├── pages/
 │   ├── home.html             # 메인 페이지
-│   ├── gold-consulting.html  # 금투자상담 (골드인사이트 > 금투자상담)
+│   ├── gold-insight.html     # 골드인사이트 (상위메뉴)
+│   ├── gold-consulting.html  # ㄴ 금투자상담
 │   ├── consignment.html      # 위탁거래
-│   ├── buy-back.html         # 금매입상담 (금·은 매입 > 금매입상담)
-│   ├── gold-bar.html         # 골드바 (제품안내 > 골드바)
-│   ├── silver-bar.html       # 실버바 (제품안내 > 실버바)
-│   ├── souvenir.html         # 기념품 (제품안내 > 기념품)
+│   ├── buy-sell.html         # 금·은 매입 (상위메뉴)
+│   ├── buy-back.html         # ㄴ 금매입상담
+│   ├── products.html         # 제품안내 (상위메뉴)
+│   ├── gold-bar.html         # ㄴ 골드바
+│   ├── silver-bar.html       # ㄴ 실버바
+│   ├── souvenir.html         # ㄴ 기념품
 │   ├── refining.html         # 금·은정련
 │   └── notice.html           # 공지사항
 ├── images/                   # 페이지별 이미지 폴더
 │   ├── home/
+│   ├── gold-insight/
 │   ├── gold-consulting/
 │   ├── consignment/
+│   ├── buy-sell/
 │   ├── buy-back/
+│   ├── products/
 │   ├── gold-bar/
 │   ├── silver-bar/
 │   ├── souvenir/
@@ -51,17 +57,20 @@ https://raw.githubusercontent.com/warren181206-star/homepage/main/images/폴더�
 
 기본 URL: `https://goldinsight053.imweb.me`
 
-| 파일명 | 메뉴명 | URL |
-|--------|--------|-----|
-| home.html | 메인 페이지 | `/` |
-| gold-consulting.html | 금투자상담 | `/gold-consulting` |
-| consignment.html | 위탁거래 | `/consignment` |
-| buy-back.html | 금매입상담 | `/buy-back` |
-| gold-bar.html | 골드바 | `/gold-bar` |
-| silver-bar.html | 실버바 | `/silver-bar` |
-| souvenir.html | 기념품 | `/souvenir` |
-| refining.html | 금·은정련 | `/refining` |
-| notice.html | 공지사항 | `/notice` |
+| 파일명                  | 메뉴명     | URL                |
+| -------------------- | ------- | ------------------ |
+| home.html            | 메인 페이지  | `/`                |
+| gold-insight.html    | 골드인사이트  | `/gold-insight`    |
+| gold-consulting.html | ㄴ 금투자상담 | `/gold-consulting` |
+| consignment.html     | 위탁거래    | `/consignment`     |
+| buy-sell.html        | 금·은 매입  | `/buy-sell`        |
+| buy-back.html        | ㄴ 금매입상담 | `/buy-back`        |
+| products.html        | 제품안내    | `/products`        |
+| gold-bar.html        | ㄴ 골드바   | `/gold-bar`        |
+| silver-bar.html      | ㄴ 실버바   | `/silver-bar`      |
+| souvenir.html        | ㄴ 기념품   | `/souvenir`        |
+| refining.html        | 금·은정련   | `/refining`        |
+| notice.html          | 공지사항    | `/notice`          |
 
 ## 메뉴 수정
 
