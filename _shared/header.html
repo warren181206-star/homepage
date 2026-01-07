@@ -1,0 +1,178 @@
+<!--
+  공통 헤더 (반복섹션용)
+  메뉴 수정 시 _config/pages.md 참고
+-->
+<div class="k-gold-header" id="kGoldFixedHeader">
+  <div class="k-gold-container">
+    <a href="/" class="k-logo">한국금거래소 <span class="m-hide">경산점</span></a>
+
+    <nav class="k-nav-wrapper">
+      <ul class="k-nav">
+        <li class="k-menu-item has-sub">
+          <a href="#">골드인사이트</a>
+          <ul class="k-sub">
+            <li><a href="/gold-consulting">금투자상담</a></li>
+          </ul>
+        </li>
+        <li class="k-menu-item">
+          <a href="/consignment">위탁거래</a>
+        </li>
+        <li class="k-menu-item has-sub">
+          <a href="#">금·은 매입</a>
+          <ul class="k-sub">
+            <li><a href="/buy-back">금매입상담</a></li>
+          </ul>
+        </li>
+        <li class="k-menu-item has-sub">
+          <a href="#">제품안내</a>
+          <ul class="k-sub">
+            <li><a href="/gold-bar">골드바</a></li>
+            <li><a href="/silver-bar">실버바</a></li>
+            <li><a href="/souvenir">기념품</a></li>
+          </ul>
+        </li>
+        <li class="k-menu-item">
+          <a href="/refining">금·은정련</a>
+        </li>
+        <li class="k-menu-item">
+          <a href="/notice">공지사항</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="k-extra">
+      <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar/rotating-gold.png" class="rotating-gold" id="scrollGold" alt="goldbar">
+    </div>
+  </div>
+</div>
+
+<style>
+.k-gold-header, .k-gold-header * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  list-style: none !important;
+  text-decoration: none !important;
+}
+
+.k-gold-header {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 70px;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #eee;
+  z-index: 999999 !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: center;
+}
+
+.k-gold-container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+
+.k-logo {
+  font-size: 18px;
+  font-weight: 800;
+  color: #b8860b;
+  white-space: nowrap;
+}
+
+.k-nav {
+  display: flex !important;
+  gap: 20px;
+}
+
+.k-menu-item {
+  position: relative;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.k-menu-item > a {
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.k-sub {
+  position: absolute;
+  top: 70px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  min-width: 130px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  padding: 10px 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.2s;
+  border-top: 2px solid #b8860b;
+}
+
+@media (min-width: 768px) {
+  .k-menu-item:hover .k-sub {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.k-sub li a {
+  display: block;
+  padding: 10px 15px;
+  font-size: 13px;
+  color: #666;
+}
+
+.rotating-gold {
+  width: 30px;
+  height: auto;
+}
+
+/* 반응형 */
+@media (max-width: 767px) {
+  .k-gold-header { height: 60px; }
+  .k-menu-item { height: 60px; }
+  .k-logo { font-size: 15px; }
+  .m-hide { display: none; }
+  .k-nav { gap: 12px; }
+  .k-menu-item > a { font-size: 13px; }
+  .k-sub { display: none !important; }
+  .k-extra { padding-left: 10px; }
+  .rotating-gold { width: 25px; }
+  body { padding-top: 60px !important; }
+}
+
+@media (min-width: 768px) {
+  body { padding-top: 70px !important; }
+}
+
+.section-wrap:has(#kGoldFixedHeader) {
+  height: 0 !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  overflow: visible !important;
+}
+</style>
+
+<script>
+(function() {
+  window.addEventListener('scroll', function() {
+    const rotation = window.scrollY / 4;
+    const goldIcon = document.getElementById('scrollGold');
+    if (goldIcon) {
+      goldIcon.style.transform = 'rotate(' + rotation + 'deg)';
+    }
+  });
+})();
+</script>
