@@ -24,7 +24,9 @@ homepage/
 │   ├── souvenir.html         # ㄴ 기념품
 │   ├── refining.html         # 금·은정련
 │   └── notice.html           # 공지사항
-├── images/                   # 페이지별 이미지 폴더
+├── images/
+│   ├── header/              # 헤더용 이미지
+│   ├── footer/              # 푸터용 이미지
 │   ├── home/
 │   ├── gold-insight/
 │   ├── gold-consulting/
