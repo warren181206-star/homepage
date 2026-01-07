@@ -39,9 +39,6 @@
       <span></span>
       <span></span>
     </button>
-    <div class="k-extra">
-      <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/home/goldbar-icon.png" class="rotating-gold" id="scrollGold" alt="goldbar">
-    </div>
   </div>
 </div>
 <div class="k-mobile-overlay" id="kMobileOverlay"></div>
@@ -169,16 +166,6 @@
   color: #b8860b !important;
   background-color: #faf6ef;
 }
-.k-extra {
-  display: flex;
-  align-items: center;
-}
-.rotating-gold {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
-  transition: transform 0.1s linear;
-}
 .k-mobile-toggle {
   display: none;
   flex-direction: column;
@@ -298,9 +285,6 @@
   .k-mobile-toggle {
     display: flex;
   }
-  .k-extra {
-    display: none;
-  }
   body {
     padding-top: 60px !important;
   }
@@ -325,13 +309,6 @@
 </style>
 <script>
 (function() {
-  window.addEventListener('scroll', function() {
-    var rotation = window.scrollY / 4;
-    var goldIcon = document.getElementById('scrollGold');
-    if (goldIcon) {
-      goldIcon.style.transform = 'rotate(' + rotation + 'deg)';
-    }
-  });
   var mobileToggle = document.getElementById('kMobileToggle');
   var mobileNav = document.getElementById('kMobileNav');
   var mobileOverlay = document.getElementById('kMobileOverlay');
