@@ -1,56 +1,157 @@
 <footer class="k-footer">
-  <div class="k-footer-container">
-    <div class="k-footer-info">
-      <p class="k-footer-brand">한국금거래소 경산점</p>
-      <p>대표: OOO | 사업자등록번호: 000-00-00000</p>
-      <p>주소: 경상북도 경산시 OOO</p>
-      <p>전화: 000-0000-0000</p>
+  <div class="k-footer-banner">
+    <div class="k-footer-banner-inner">
+      <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/footer/유사상호 배너.jpg" alt="한국금거래소 로고와 간판을 꼭 확인하세요" class="k-banner-img">
     </div>
-    <div class="k-footer-copy">
-      <p>&copy; 2025 한국금거래소 경산점. All rights reserved.</p>
+  </div>
+  <div class="k-footer-main">
+    <div class="k-footer-container">
+      <div class="k-footer-content">
+        <div class="k-footer-left">
+          <p class="k-footer-slogan">믿을 수 있는 금거래,<br>골드인사이트가 함께 하겠습니다.</p>
+        </div>
+        <div class="k-footer-right">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/footer/가로로고.png" alt="골드인사이트 로고" class="k-footer-logo">
+        </div>
+      </div>
+      <div class="k-footer-info">
+        <div class="k-footer-info-row">
+          <div class="k-footer-info-item">
+            <span class="k-info-label">법인</span>
+            <span class="k-info-value">골드인사이트</span>
+          </div>
+          <div class="k-footer-info-item">
+            <span class="k-info-label">주소</span>
+            <span class="k-info-value">경북 경산시 정평동 199-4번지 (정평역 2번출구)</span>
+          </div>
+          <div class="k-footer-info-item">
+            <span class="k-info-label">사업자등록번호</span>
+            <span class="k-info-value">123-456-78910</span>
+          </div>
+        </div>
+        <div class="k-footer-info-row">
+          <div class="k-footer-info-item">
+            <span class="k-info-label">대표</span>
+            <span class="k-info-value">김남일</span>
+          </div>
+          <div class="k-footer-info-item">
+            <span class="k-info-label">문의</span>
+            <span class="k-info-value">053-812-1112</span>
+          </div>
+        </div>
+      </div>
+      <div class="k-footer-copy">
+        <p>Copyright &copy; 2025. goldinsight All rights reserved.</p>
+      </div>
     </div>
   </div>
 </footer>
-
 <style>
 .k-footer {
   background-color: #1a1a1a;
   color: #999;
-  padding: 40px 20px;
-  font-size: 13px;
-  line-height: 1.8;
+  font-size: 14px;
+  line-height: 1.6;
 }
-
+.k-footer * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.k-footer-banner {
+  width: 100%;
+  background: #000;
+}
+.k-footer-banner-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.k-banner-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.k-footer-main {
+  padding: 50px 20px;
+}
 .k-footer-container {
   max-width: 1200px;
   margin: 0 auto;
 }
-
-.k-footer-brand {
-  color: #b8860b;
-  font-size: 16px;
+.k-footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+.k-footer-slogan {
+  font-size: 28px;
   font-weight: 700;
-  margin-bottom: 15px;
+  color: #b8860b;
+  line-height: 1.4;
 }
-
-.k-footer-info p {
-  margin: 5px 0;
+.k-footer-logo {
+  height: 80px;
+  width: auto;
 }
-
+.k-footer-info {
+  margin-bottom: 30px;
+}
+.k-footer-info-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px 40px;
+  margin-bottom: 10px;
+}
+.k-footer-info-item {
+  display: flex;
+  gap: 8px;
+}
+.k-info-label {
+  color: #666;
+  font-weight: 600;
+}
+.k-info-value {
+  color: #999;
+}
 .k-footer-copy {
-  margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid #333;
   color: #666;
+  font-size: 13px;
 }
-
 @media (max-width: 767px) {
-  .k-footer {
+  .k-footer-main {
     padding: 30px 15px;
+  }
+  .k-footer-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 30px;
+  }
+  .k-footer-slogan {
+    font-size: 20px;
+  }
+  .k-footer-logo {
+    height: 60px;
+  }
+  .k-footer-info-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .k-footer-info-item {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .k-info-label {
     font-size: 12px;
   }
-  .k-footer-brand {
-    font-size: 14px;
+  .k-info-value {
+    font-size: 13px;
+  }
+  .k-footer-copy {
+    font-size: 11px;
   }
 }
 </style>
