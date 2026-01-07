@@ -1,8 +1,7 @@
 <div class="k-gold-header" id="kGoldFixedHeader">
   <div class="k-gold-container">
     <a href="/home" class="k-logo">
-      <span class="k-logo-main">한국금거래소</span>
-      <span class="k-logo-sub">경산점</span>
+      <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/header/%EA%B0%80%EB%A1%9C%EB%A1%9C%EA%B3%A0.png" alt="한국금거래소 경산점" class="k-logo-img">
     </a>
     <nav class="k-nav-wrapper">
       <ul class="k-nav">
@@ -110,26 +109,17 @@
 }
 .k-logo {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
   transition: all 0.3s ease;
 }
 .k-logo:hover {
   transform: translateY(-1px);
+  opacity: 0.9;
 }
-.k-logo-main {
-  font-size: 20px;
-  font-weight: 700;
-  background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: 1px;
-}
-.k-logo-sub {
-  font-size: 14px;
-  font-weight: 500;
-  color: #888 !important;
+.k-logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
 }
 .k-nav-wrapper {
   display: flex;
@@ -344,11 +334,8 @@
   .k-gold-container {
     padding: 0 20px;
   }
-  .k-logo-main {
-    font-size: 17px;
-  }
-  .k-logo-sub {
-    display: none;
+  .k-logo-img {
+    height: 32px;
   }
   .k-nav-wrapper {
     display: none;
