@@ -1,6 +1,9 @@
 <div class="k-gold-header" id="kGoldFixedHeader">
   <div class="k-gold-container">
-    <a href="/home" class="k-logo">한국금거래소 <span class="m-hide">경산점</span></a>
+    <a href="/home" class="k-logo">
+      <span class="k-logo-main">한국금거래소</span>
+      <span class="k-logo-sub">경산점</span>
+    </a>
     <nav class="k-nav-wrapper">
       <ul class="k-nav">
         <li class="k-menu-item has-sub">
@@ -44,7 +47,7 @@
 <div class="k-mobile-overlay" id="kMobileOverlay"></div>
 <nav class="k-mobile-nav" id="kMobileNav">
   <div class="k-mobile-nav-header">
-    <span class="k-mobile-nav-title">메뉴</span>
+    <span class="k-mobile-nav-title">MENU</span>
     <button class="k-mobile-close" id="kMobileClose" aria-label="메뉴 닫기">&times;</button>
   </div>
   <ul class="k-mobile-menu">
@@ -88,83 +91,138 @@
   top: 0 !important;
   left: 0 !important;
   width: 100% !important;
-  height: 70px;
-  background-color: #ffffff !important;
-  border-bottom: 1px solid #eee;
+  height: 72px;
+  background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%) !important;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.2);
   z-index: 999999 !important;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
   display: flex;
   justify-content: center;
 }
 .k-gold-container {
   width: 100%;
   max-width: 1200px;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 .k-logo {
-  font-size: 18px;
-  font-weight: 800;
-  color: #b8860b !important;
-  white-space: nowrap;
-  transition: color 0.2s;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  transition: all 0.3s ease;
 }
 .k-logo:hover {
-  color: #9a7209 !important;
+  transform: translateY(-1px);
+}
+.k-logo-main {
+  font-size: 20px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+}
+.k-logo-sub {
+  font-size: 14px;
+  font-weight: 500;
+  color: #888 !important;
+}
+.k-nav-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 .k-nav {
   display: flex !important;
-  gap: 8px;
+  align-items: center;
+  height: 100%;
+  gap: 0;
 }
 .k-menu-item {
   position: relative;
-  height: 70px;
+  height: 100%;
   display: flex;
   align-items: center;
 }
 .k-menu-item > a {
-  color: #333 !important;
-  font-weight: 600;
+  color: #ccc !important;
+  font-weight: 500;
   font-size: 15px;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: all 0.2s;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.k-menu-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #d4af37, #f4e4bc);
+  transition: width 0.3s ease;
 }
 .k-menu-item > a:hover {
-  color: #b8860b !important;
-  background-color: #faf6ef;
+  color: #d4af37 !important;
+}
+.k-menu-item > a:hover::after {
+  width: 60%;
 }
 .k-sub {
   position: absolute;
-  top: 70px;
+  top: 100%;
   left: 50%;
-  transform: translateX(-50%);
-  background: #ffffff;
-  min-width: 140px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-  padding: 8px 0;
+  transform: translateX(-50%) translateY(10px);
+  background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
+  min-width: 160px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  padding: 12px 0;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s ease;
-  border-top: 3px solid #b8860b;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(184, 134, 11, 0.15);
+  border-top: 2px solid #d4af37;
   border-radius: 0 0 8px 8px;
 }
 .k-menu-item:hover .k-sub {
   opacity: 1;
   visibility: visible;
+  transform: translateX(-50%) translateY(0);
 }
 .k-sub li a {
   display: block;
-  padding: 12px 20px;
+  padding: 12px 24px;
   font-size: 14px;
-  color: #555 !important;
-  transition: all 0.2s;
+  color: #999 !important;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.k-sub li a::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 1px;
+  background: #d4af37;
+  transition: width 0.3s ease;
 }
 .k-sub li a:hover {
-  color: #b8860b !important;
-  background-color: #faf6ef;
+  color: #d4af37 !important;
+  background: rgba(212, 175, 55, 0.05);
+  padding-left: 32px;
+}
+.k-sub li a:hover::before {
+  width: 8px;
 }
 .k-mobile-toggle {
   display: none;
@@ -182,7 +240,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #333;
+  background: linear-gradient(90deg, #d4af37, #f4e4bc);
   border-radius: 2px;
   transition: all 0.3s;
 }
@@ -193,7 +251,8 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(4px);
   z-index: 999998;
   opacity: 0;
   transition: opacity 0.3s;
@@ -205,14 +264,14 @@
 .k-mobile-nav {
   position: fixed;
   top: 0;
-  right: -280px;
-  width: 280px;
+  right: -300px;
+  width: 300px;
   height: 100%;
-  background: #ffffff;
+  background: linear-gradient(180deg, #0d0d0d 0%, #1a1a1a 100%);
   z-index: 1000000;
-  transition: right 0.3s ease;
+  transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow-y: auto;
-  box-shadow: -4px 0 20px rgba(0,0,0,0.1);
+  box-shadow: -10px 0 40px rgba(0,0,0,0.5);
 }
 .k-mobile-nav.active {
   right: 0;
@@ -221,62 +280,74 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  border-bottom: 1px solid #eee;
-  background: #faf6ef;
+  padding: 24px;
+  border-bottom: 1px solid rgba(184, 134, 11, 0.2);
+  background: rgba(212, 175, 55, 0.05);
 }
 .k-mobile-nav-title {
-  font-size: 18px;
-  font-weight: 700;
-  color: #b8860b;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .k-mobile-close {
   font-size: 28px;
   background: none;
   border: none;
   cursor: pointer;
-  color: #666;
+  color: #888;
   line-height: 1;
+  transition: color 0.3s;
+}
+.k-mobile-close:hover {
+  color: #d4af37;
 }
 .k-mobile-menu {
-  padding: 10px 0;
+  padding: 16px 0;
 }
 .k-mobile-menu > li > a {
   display: block;
-  padding: 15px 20px;
-  font-size: 16px;
-  font-weight: 600;
-  color: #333 !important;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ccc !important;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.3s;
 }
 .k-mobile-menu > li > a:hover {
-  color: #b8860b !important;
-  background: #faf6ef;
+  color: #d4af37 !important;
+  background: rgba(212, 175, 55, 0.08);
+  padding-left: 32px;
 }
 .k-mobile-sub {
-  background: #f9f9f9;
+  background: rgba(0,0,0,0.3);
 }
 .k-mobile-sub li a {
   display: block;
-  padding: 12px 20px 12px 35px;
+  padding: 14px 24px 14px 40px;
   font-size: 14px;
-  color: #666 !important;
-  border-bottom: 1px solid #eee;
+  color: #888 !important;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  transition: all 0.3s;
 }
 .k-mobile-sub li a:hover {
-  color: #b8860b !important;
+  color: #d4af37 !important;
+  padding-left: 48px;
 }
 @media (max-width: 767px) {
   .k-gold-header {
-    height: 60px;
+    height: 64px;
   }
   .k-gold-container {
-    padding: 0 15px;
+    padding: 0 20px;
   }
-  .k-logo {
-    font-size: 16px;
+  .k-logo-main {
+    font-size: 17px;
   }
-  .m-hide {
+  .k-logo-sub {
     display: none;
   }
   .k-nav-wrapper {
@@ -286,12 +357,12 @@
     display: flex;
   }
   body {
-    padding-top: 60px !important;
+    padding-top: 64px !important;
   }
 }
 @media (min-width: 768px) {
   body {
-    padding-top: 70px !important;
+    padding-top: 72px !important;
   }
   .k-mobile-nav,
   .k-mobile-overlay {
