@@ -1,39 +1,417 @@
-<div class="k-page-content">
-  <section class="k-section">
-    <h2>페이지 제목</h2>
-    <p>페이지 내용을 여기에 작성하세요.</p>
-  </section>
-</div>
-
 <style>
-.k-page-content {
-  max-width: 1200px;
+.products-page {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.products-page *, .products-page *::before, .products-page *::after {
+  box-sizing: border-box;
+}
+.products-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 100%, rgba(192, 192, 192, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 30% at 20% 80%, rgba(184, 134, 11, 0.04) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.products-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    repeating-linear-gradient(
+      -25deg,
+      transparent,
+      transparent 80px,
+      rgba(212, 175, 55, 0.02) 80px,
+      rgba(212, 175, 55, 0.02) 81px
+    ),
+    repeating-linear-gradient(
+      25deg,
+      transparent,
+      transparent 80px,
+      rgba(192, 192, 192, 0.015) 80px,
+      rgba(192, 192, 192, 0.015) 81px
+    );
+}
+.products-content {
+  position: relative;
+  z-index: 1;
+  padding: 80px 40px 100px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 40px 20px;
 }
-
-.k-section {
-  padding: 40px 0;
+.products-header {
+  text-align: center;
+  margin-bottom: 80px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-
-.k-section h2 {
-  font-size: 28px;
-  color: #333;
-  margin-bottom: 20px;
+.products-header.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-
-.k-section p {
-  font-size: 16px;
+.products-badge {
+  display: inline-block;
+  padding: 8px 24px;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: #d4af37;
+  margin-bottom: 24px;
+  background: rgba(212, 175, 55, 0.05);
+}
+.products-title {
+  font-size: clamp(48px, 10vw, 90px);
+  font-weight: 200;
+  letter-spacing: 8px;
+  margin: 0 0 32px 0;
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 40%, #d4af37 60%, #b8860b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 80px rgba(212, 175, 55, 0.3);
+}
+.products-desc {
+  color: #777;
+  font-size: clamp(15px, 2vw, 18px);
+  line-height: 2;
+  margin: 0 0 48px 0;
+  font-weight: 300;
+}
+.products-desc strong {
+  color: #d4af37;
+  font-weight: 500;
+}
+.products-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 48px;
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  border-radius: 50px;
+  color: #d4af37 !important;
+  text-decoration: none !important;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  transition: all 0.4s ease;
+  background: rgba(212, 175, 55, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+.products-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
+  transition: left 0.6s ease;
+}
+.products-btn:hover {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #000 !important;
+  border-color: #d4af37;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.3);
+}
+.products-btn:hover::before {
+  left: 100%;
+}
+.products-btn-arrow {
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+.products-btn:hover .products-btn-arrow {
+  transform: translateX(4px);
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+.product-card {
+  background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 24px;
+  padding: 48px 36px;
+  text-align: center;
+  text-decoration: none !important;
+  color: inherit;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.6s ease-out,
+              transform 0.6s ease-out,
+              border-color 0.4s ease,
+              box-shadow 0.4s ease;
+}
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.product-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.product-card:hover {
+  border-color: rgba(212, 175, 55, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 60px rgba(212, 175, 55, 0.1);
+  transform: translateY(-8px);
+}
+.product-card:hover::before {
+  opacity: 1;
+}
+.product-card.silver:hover {
+  border-color: rgba(192, 192, 192, 0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 60px rgba(192, 192, 192, 0.1);
+}
+.product-card.silver::before {
+  background: linear-gradient(90deg, transparent, rgba(192, 192, 192, 0.3), transparent);
+}
+.product-img-wrap {
+  position: relative;
+  margin-bottom: 28px;
+}
+.product-card img {
+  width: 75%;
+  max-width: 200px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.5s ease, filter 0.5s ease;
+  filter: drop-shadow(0 10px 30px rgba(212, 175, 55, 0.2));
+}
+.product-card.silver img {
+  filter: drop-shadow(0 10px 30px rgba(192, 192, 192, 0.2));
+}
+.product-card:hover img {
+  transform: scale(1.1) translateY(-8px);
+  filter: drop-shadow(0 20px 50px rgba(212, 175, 55, 0.4));
+}
+.product-card.silver:hover img {
+  filter: drop-shadow(0 20px 50px rgba(192, 192, 192, 0.4));
+}
+.product-label {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.product-label.gold {
+  background: rgba(212, 175, 55, 0.15);
+  color: #d4af37;
+}
+.product-label.silver {
+  background: rgba(192, 192, 192, 0.15);
+  color: #c0c0c0;
+}
+.product-name {
+  font-size: 14px;
+  color: #888;
+  margin: 0 0 8px 0;
+  font-weight: 400;
+}
+.product-weight {
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 300;
+  margin: 0 0 16px 0;
+  background: linear-gradient(135deg, #d4af37 0%, #f4e4bc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.product-card.silver .product-weight {
+  background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.product-price {
+  font-size: 14px;
   color: #666;
-  line-height: 1.8;
+  margin: 0 0 24px 0;
+  padding: 8px 16px;
+  background: rgba(212, 175, 55, 0.05);
+  border-radius: 20px;
+  display: inline-block;
 }
-
-@media (max-width: 767px) {
-  .k-page-content {
-    padding: 30px 15px;
+.product-card.silver .product-price {
+  background: rgba(192, 192, 192, 0.05);
+}
+.product-link {
+  width: 52px;
+  height: 52px;
+  background: rgba(212, 175, 55, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: #d4af37;
+  font-size: 18px;
+  transition: all 0.4s ease;
+}
+.product-card.silver .product-link {
+  background: rgba(192, 192, 192, 0.1);
+  border-color: rgba(192, 192, 192, 0.2);
+  color: #c0c0c0;
+}
+.product-card:hover .product-link {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #000;
+  border-color: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4);
+}
+.product-card.silver:hover .product-link {
+  background: linear-gradient(135deg, #e8e8e8 0%, #c0c0c0 100%);
+  box-shadow: 0 8px 24px rgba(192, 192, 192, 0.4);
+}
+@media (max-width: 1024px) {
+  .products-content {
+    padding: 60px 24px 80px;
   }
-  .k-section h2 {
-    font-size: 22px;
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .products-header {
+    margin-bottom: 60px;
+  }
+}
+@media (max-width: 640px) {
+  .products-content {
+    padding: 48px 16px 60px;
+  }
+  .product-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .product-card {
+    padding: 36px 28px;
+    border-radius: 20px;
+  }
+  .product-card img {
+    width: 70%;
+    max-width: 180px;
+  }
+  .products-header {
+    margin-bottom: 48px;
+  }
+  .products-title {
+    letter-spacing: 4px;
+  }
+  .products-badge {
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 6px 18px;
+  }
+  .products-btn {
+    padding: 14px 36px;
+    font-size: 13px;
+    letter-spacing: 2px;
   }
 }
 </style>
+<div class="products-page">
+  <div class="products-bg"></div>
+  <div class="products-content">
+    <div class="products-header">
+      <span class="products-badge">BEST PRODUCTS</span>
+      <h2 class="products-title">PRODUCTS</h2>
+      <p class="products-desc">
+        한국금거래소 인기 상품<br>
+        <strong>999.9</strong> 순금·순은으로 제작된 프리미엄 제품을 만나보세요
+      </p>
+      <a href="https://www.koreagoldx.co.kr" target="_blank" class="products-btn">
+        <span>VIEW ALL</span>
+        <span class="products-btn-arrow">→</span>
+      </a>
+    </div>
+    <div class="product-grid">
+      <a href="https://www.koreagoldx.co.kr/product/9" target="_blank" class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/products/37.5g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="37.5g 골드바">
+        </div>
+        <span class="product-label gold">GOLD</span>
+        <p class="product-name">한국금거래소 골드바</p>
+        <p class="product-weight">37.5g</p>
+        <p class="product-price">시세변동</p>
+        <div class="product-link">→</div>
+      </a>
+      <a href="https://www.koreagoldx.co.kr/product/12" target="_blank" class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/products/100g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="100g 골드바">
+        </div>
+        <span class="product-label gold">GOLD</span>
+        <p class="product-name">한국금거래소 골드바</p>
+        <p class="product-weight">100g</p>
+        <p class="product-price">시세변동</p>
+        <div class="product-link">→</div>
+      </a>
+      <a href="https://www.koreagoldx.co.kr/product/112" target="_blank" class="product-card silver">
+        <div class="product-img-wrap">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/products/1000g%20%EC%8B%A4%EB%B2%84%EB%B0%94.png" alt="1000g 실버바">
+        </div>
+        <span class="product-label silver">SILVER</span>
+        <p class="product-name">한국금거래소 실버바</p>
+        <p class="product-weight">1000g</p>
+        <p class="product-price">시세변동</p>
+        <div class="product-link">→</div>
+      </a>
+    </div>
+  </div>
+</div>
+<script>
+(function() {
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.05, rootMargin: '50px 0px' });
+  var header = document.querySelector('.products-header');
+  if (header) observer.observe(header);
+  document.querySelectorAll('.product-card').forEach(function(card, i) {
+    card.style.transitionDelay = (i * 0.1) + 's';
+    observer.observe(card);
+  });
+  setTimeout(function() {
+    document.querySelectorAll('.products-header, .product-card').forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }, 800);
+})();
+</script>
