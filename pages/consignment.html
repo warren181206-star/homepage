@@ -126,17 +126,17 @@
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 24px;
-  height: 180px;
+  gap: 60px;
+  height: 220px;
+  padding-top: 40px;
 }
 .price-bar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
 }
 .price-bar-fill {
-  width: 60px;
+  width: 80px;
   border-radius: 8px 8px 0 0;
 }
 .price-bar-fill.gray {
@@ -154,19 +154,31 @@
   left: 50%;
   transform: translateX(-50%);
   background: rgba(183, 142, 100, 0.2);
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 12px;
-  font-size: 11px;
+  font-size: 12px;
   color: #b78e64;
   white-space: nowrap;
 }
+.price-bar-info {
+  margin-top: 12px;
+  text-align: center;
+}
 .price-bar-name {
-  font-size: 12px;
-  color: #888;
+  font-size: 14px;
+  color: #999;
+  margin: 0 0 4px 0;
 }
 .price-bar-sub {
-  font-size: 11px;
-  color: #555;
+  font-size: 12px;
+  color: #666;
+  margin: 0;
+}
+.price-bar-percent {
+  font-size: 13px;
+  color: #b78e64;
+  font-weight: 500;
+  margin: 4px 0 0 0;
 }
 .price-check-header {
   text-align: center;
@@ -273,17 +285,24 @@
     border-radius: 20px;
   }
   .price-bars {
-    gap: 16px;
-    height: 150px;
+    gap: 40px;
+    height: 180px;
+    padding-top: 30px;
   }
   .price-bar-fill {
-    width: 50px;
+    width: 60px;
   }
   .price-bar-fill.gray {
     height: 80px;
   }
   .price-bar-fill.gold {
     height: 105px;
+  }
+  .price-bar-name {
+    font-size: 13px;
+  }
+  .price-bar-percent {
+    font-size: 12px;
   }
   .goldbar-grid {
     gap: 16px;
@@ -336,17 +355,19 @@
       <div class="price-bars">
         <div class="price-bar">
           <div class="price-bar-fill gray"></div>
-          <p class="price-bar-name">금은방</p>
-          <p class="price-bar-sub">금거래소</p>
-          <p class="price-bar-sub" style="color:#b78e64;">10% 이상</p>
+          <div class="price-bar-info">
+            <p class="price-bar-name">금은방 / 금거래소</p>
+            <p class="price-bar-percent">10% 이상</p>
+          </div>
         </div>
         <div class="price-bar">
           <div class="price-bar-fill gold">
             <span class="price-bar-label">2.15% 예상</span>
           </div>
-          <p class="price-bar-name">중매</p>
-          <p class="price-bar-sub">거래</p>
-          <p class="price-bar-sub" style="color:#b78e64;">차이</p>
+          <div class="price-bar-info">
+            <p class="price-bar-name">중매거래</p>
+            <p class="price-bar-percent">차이 최소화</p>
+          </div>
         </div>
       </div>
     </div>
