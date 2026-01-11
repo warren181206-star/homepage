@@ -1,0 +1,183 @@
+<style>
+.purchase-process {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  padding: 80px 20px;
+  position: relative;
+}
+.purchase-process *, .purchase-process *::before, .purchase-process *::after {
+  box-sizing: border-box;
+}
+.purchase-process-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.5) 0%, rgba(15, 15, 15, 0.7) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 32px;
+  padding: 60px 48px;
+}
+.purchase-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.purchase-badge {
+  display: inline-block;
+  padding: 10px 28px;
+  border: 1px solid rgba(183, 142, 100, 0.4);
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #b78e64;
+  background: rgba(183, 142, 100, 0.1);
+  margin-bottom: 24px;
+}
+.purchase-title {
+  font-size: clamp(28px, 5vw, 36px);
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+.purchase-title span {
+  color: #666;
+  font-weight: 400;
+  font-size: clamp(14px, 2vw, 18px);
+  margin-left: 12px;
+}
+.purchase-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.purchase-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.step-number {
+  width: 56px;
+  height: 56px;
+  min-width: 56px;
+  background: linear-gradient(135deg, #b78e64 0%, #d4b896 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+.step-icon {
+  font-size: 24px;
+}
+.step-content {
+  flex: 1;
+  padding-top: 4px;
+}
+.step-title {
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 600;
+  color: #b78e64;
+  margin: 0 0 8px 0;
+}
+.step-desc {
+  font-size: clamp(13px, 2vw, 15px);
+  color: #888;
+  margin: 0;
+  line-height: 1.6;
+}
+.step-highlight {
+  color: #999;
+  font-weight: 500;
+}
+.purchase-footer {
+  text-align: center;
+  margin-top: 48px;
+}
+.purchase-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #888;
+  font-size: 15px;
+  font-weight: 500;
+}
+.purchase-btn-icon {
+  font-size: 18px;
+}
+@media (max-width: 768px) {
+  .purchase-process {
+    padding: 60px 16px;
+  }
+  .purchase-process-inner {
+    padding: 40px 24px;
+    border-radius: 24px;
+  }
+  .purchase-header {
+    margin-bottom: 36px;
+  }
+  .step-number {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    font-size: 18px;
+  }
+  .step-icon {
+    font-size: 20px;
+  }
+  .purchase-step {
+    gap: 16px;
+  }
+  .purchase-footer {
+    margin-top: 36px;
+  }
+}
+</style>
+<div class="purchase-process">
+  <div class="purchase-process-inner">
+    <div class="purchase-header">
+      <div class="purchase-badge">중매거래</div>
+      <h2 class="purchase-title">구매절차 <span>brokerage deal purchase procedure</span></h2>
+    </div>
+    <div class="purchase-steps">
+      <div class="purchase-step">
+        <div class="step-number"><span class="step-icon">🌐</span></div>
+        <div class="step-content">
+          <h3 class="step-title">'골드인사이트' 홈페이지 방문</h3>
+          <p class="step-desc">공식 홈페이지에서 거래를 시작하세요</p>
+        </div>
+      </div>
+      <div class="purchase-step">
+        <div class="step-number"><span class="step-icon">✨</span></div>
+        <div class="step-content">
+          <h3 class="step-title">마음에 드시는 상품 선택</h3>
+          <p class="step-desc">다양한 골드바 상품을 확인하세요</p>
+        </div>
+      </div>
+      <div class="purchase-step">
+        <div class="step-number"><span class="step-icon">📞</span></div>
+        <div class="step-content">
+          <h3 class="step-title">문의하기</h3>
+          <p class="step-desc"><span class="step-highlight">053-812-1112</span><br>평일/주말 10:00~19:00</p>
+        </div>
+      </div>
+      <div class="purchase-step">
+        <div class="step-number"><span class="step-icon">💳</span></div>
+        <div class="step-content">
+          <h3 class="step-title">결제</h3>
+          <p class="step-desc">안전한 거래 시스템</p>
+        </div>
+      </div>
+    </div>
+    <div class="purchase-footer">
+      <div class="purchase-btn">
+        <span class="purchase-btn-icon">📦</span>
+        <span>배송 또는 방문수령</span>
+      </div>
+    </div>
+  </div>
+</div>
