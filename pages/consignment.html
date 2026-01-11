@@ -81,6 +81,108 @@
   font-size: clamp(15px, 2.5vw, 18px);
   margin: 0;
 }
+.trust-section {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.trust-sub {
+  color: #b78e64;
+  font-size: clamp(14px, 2vw, 16px);
+  margin: 0 0 12px 0;
+}
+.trust-title {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  margin: 0 0 40px 0;
+}
+.trust-title .gold {
+  background: linear-gradient(135deg, #b78e64 0%, #d4b896 50%, #b78e64 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.trust-box {
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.trust-intro {
+  color: #aaa;
+  font-size: clamp(15px, 2.5vw, 18px);
+  line-height: 1.8;
+  margin: 0 0 32px 0;
+}
+.trust-intro .gold {
+  color: #b78e64;
+  font-weight: 600;
+}
+.trust-list {
+  text-align: left;
+  max-width: 400px;
+  margin: 0 auto;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.trust-item:last-child {
+  margin-bottom: 0;
+}
+.trust-check {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #b78e64 0%, #d4b896 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.trust-check svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #0a0a0a;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.trust-text {
+  color: #fff;
+  font-size: clamp(15px, 2.5vw, 18px);
+  font-weight: 500;
+  margin: 0;
+}
+.trust-text .gold {
+  color: #b78e64;
+}
+.trust-bottom-box {
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 32px 40px;
+  text-align: center;
+}
+.trust-bottom-text {
+  color: #b78e64;
+  font-size: clamp(15px, 2.5vw, 18px);
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+.trust-bottom-highlight {
+  color: #fff;
+  font-size: clamp(16px, 2.5vw, 20px);
+  font-weight: 600;
+  margin: 0;
+}
+.trust-bottom-highlight .gold {
+  color: #b78e64;
+}
 .consign-box {
   background: linear-gradient(145deg, rgba(30, 30, 30, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
   border: 1px solid rgba(255, 255, 255, 0.06);
@@ -403,6 +505,28 @@
   .consign-section {
     padding: 60px 16px;
   }
+  .trust-section {
+    margin-bottom: 40px;
+  }
+  .trust-box, .trust-bottom-box {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+  .trust-list {
+    max-width: 100%;
+  }
+  .trust-item {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  .trust-check {
+    width: 28px;
+    height: 28px;
+  }
+  .trust-check svg {
+    width: 14px;
+    height: 14px;
+  }
   .consign-box {
     padding: 28px 20px;
     border-radius: 20px;
@@ -503,6 +627,40 @@
         <span class="gold">금을 확보하는 방법</span>
       </h2>
       <p class="consign-desc">한국금거래소 공식사업협력</p>
+    </div>
+    <div class="trust-section">
+      <p class="trust-sub">금남일이 직접 운영하는</p>
+      <h2 class="trust-title"><span class="gold">신뢰기반 위탁거래!</span></h2>
+      <div class="trust-box">
+        <p class="trust-intro">
+          유튜버이자 금 투자가인 <span class="gold">금남일</span>은<br>
+          골드인사이트를 직접 운영하고 있습니다.
+        </p>
+        <div class="trust-list">
+          <div class="trust-item">
+            <div class="trust-check">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <p class="trust-text">직접 <span class="gold">적정가 설정</span></p>
+          </div>
+          <div class="trust-item">
+            <div class="trust-check">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <p class="trust-text">회원 중심의 <span class="gold">거래 검증</span></p>
+          </div>
+          <div class="trust-item">
+            <div class="trust-check">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <p class="trust-text">장기 거래 기반의 <span class="gold">신뢰 네트워크</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="trust-bottom-box">
+        <p class="trust-bottom-text">불필요한 프리미엄 없이</p>
+        <p class="trust-bottom-highlight">정확한 시세 기반의 거래를 <span class="gold">직접 경험하세요!</span></p>
+      </div>
     </div>
     <div class="consign-box">
       <h3 class="consign-box-title">중매거래?</h3>
