@@ -55,10 +55,23 @@
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  position: relative;
 }
 .gold-header.visible {
   opacity: 1;
   transform: translateY(0);
+}
+.gold-header-bg-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  opacity: 0.4;
+  pointer-events: none;
+  z-index: 0;
 }
 .gold-badge {
   display: inline-block;
@@ -71,11 +84,15 @@
   color: #b78e64;
   margin-bottom: 24px;
   background: rgba(183, 142, 100, 0.08);
+  position: relative;
+  z-index: 1;
 }
 .gold-title {
   font-size: clamp(56px, 12vw, 100px);
   font-weight: 200;
   letter-spacing: 12px;
+  position: relative;
+  z-index: 1;
   margin: 0 0 32px 0;
   background: linear-gradient(135deg, #b78e64 0%, #d4b896 40%, #b78e64 60%, #8b6914 100%);
   -webkit-background-clip: text;
@@ -88,6 +105,8 @@
   line-height: 2;
   margin: 0 0 48px 0;
   font-weight: 300;
+  position: relative;
+  z-index: 1;
 }
 .gold-desc strong {
   color: #b78e64;
@@ -109,6 +128,7 @@
   background: rgba(183, 142, 100, 0.08);
   position: relative;
   overflow: hidden;
+  z-index: 1;
 }
 .gold-btn::before {
   content: '';
@@ -294,6 +314,7 @@
   <div class="gold-bg"></div>
   <div class="gold-content">
     <div class="gold-header">
+      <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/gold-bar/%EA%B3%A8%EB%93%9C%EB%B0%94%20%EC%83%81%EB%8B%A8%20%EB%B0%B0%EB%84%88.jpg" alt="" class="gold-header-bg-img">
       <span class="gold-badge">PREMIUM GOLD BAR</span>
       <h2 class="gold-title">GOLD BAR</h2>
       <p class="gold-desc">
