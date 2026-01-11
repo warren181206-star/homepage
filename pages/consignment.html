@@ -1,15 +1,15 @@
 <style>
-.price-check-section {
+.consign-section {
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #0a0a0a;
   padding: 80px 20px;
   position: relative;
   overflow: hidden;
 }
-.price-check-section *, .price-check-section *::before, .price-check-section *::after {
+.consign-section *, .consign-section *::before, .consign-section *::after {
   box-sizing: border-box;
 }
-.price-check-bg {
+.consign-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +24,7 @@
       #0a0a0a 100%
     );
 }
-.price-check-bg::after {
+.consign-bg::after {
   content: '';
   position: absolute;
   top: -50%;
@@ -39,23 +39,145 @@
     rgba(80, 80, 80, 0.03) 9px
   );
 }
-.price-check-content {
+.consign-content {
   position: relative;
   z-index: 1;
   max-width: 1100px;
   margin: 0 auto;
 }
-.price-check-header {
+.consign-header {
   text-align: center;
   margin-bottom: 60px;
 }
-.price-check-title {
-  font-size: clamp(32px, 6vw, 48px);
-  font-weight: 700;
-  margin: 0 0 28px 0;
-  line-height: 1.3;
+.consign-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid rgba(183, 142, 100, 0.3);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #b78e64;
+  background: rgba(183, 142, 100, 0.08);
+  margin-bottom: 20px;
 }
-.price-check-title .highlight {
+.consign-title {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  line-height: 1.4;
+}
+.consign-title .gold {
+  background: linear-gradient(135deg, #b78e64 0%, #d4b896 50%, #b78e64 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.consign-title .white {
+  color: #fff;
+}
+.consign-desc {
+  color: #666;
+  font-size: clamp(13px, 2vw, 15px);
+  margin: 0;
+}
+.consign-box {
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+.consign-box-title {
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 24px 0;
+}
+.consign-box-text {
+  color: #888;
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.9;
+  margin: 0 0 20px 0;
+}
+.consign-box-text .gold {
+  color: #b78e64;
+  font-weight: 500;
+}
+.consign-box-text .red {
+  color: #e57373;
+}
+.consign-quote {
+  font-size: 40px;
+  color: rgba(183, 142, 100, 0.3);
+  line-height: 1;
+}
+.price-compare {
+  margin: 48px 0;
+  text-align: center;
+}
+.price-compare-title {
+  font-size: 14px;
+  color: #666;
+  margin: 0 0 24px 0;
+}
+.price-bars {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 24px;
+  height: 180px;
+}
+.price-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+.price-bar-fill {
+  width: 60px;
+  border-radius: 8px 8px 0 0;
+}
+.price-bar-fill.gray {
+  background: linear-gradient(180deg, #666 0%, #444 100%);
+  height: 100px;
+}
+.price-bar-fill.gold {
+  background: linear-gradient(180deg, #d4b896 0%, #b78e64 100%);
+  height: 130px;
+  position: relative;
+}
+.price-bar-label {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(183, 142, 100, 0.2);
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  color: #b78e64;
+  white-space: nowrap;
+}
+.price-bar-name {
+  font-size: 12px;
+  color: #888;
+}
+.price-bar-sub {
+  font-size: 11px;
+  color: #555;
+}
+.price-check-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.price-check-title {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  margin: 0 0 16px 0;
+}
+.price-check-title .gold {
   background: linear-gradient(135deg, #b78e64 0%, #d4b896 50%, #b78e64 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -66,25 +188,23 @@
 }
 .price-check-desc {
   color: #888;
-  font-size: clamp(14px, 2vw, 17px);
-  line-height: 1.9;
+  font-size: clamp(13px, 2vw, 15px);
+  line-height: 1.8;
   margin: 0;
-  font-weight: 300;
 }
 .price-info-box {
   background: linear-gradient(145deg, rgba(30, 30, 30, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 24px;
-  padding: 48px;
-  margin-bottom: 48px;
+  padding: 36px;
+  margin-bottom: 40px;
   text-align: center;
 }
 .price-info-text {
   color: #999;
-  font-size: clamp(15px, 2vw, 18px);
-  line-height: 2;
+  font-size: clamp(14px, 2vw, 16px);
+  line-height: 1.9;
   margin: 0;
-  font-weight: 300;
 }
 .price-info-text .gold {
   color: #b78e64;
@@ -94,53 +214,145 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  margin-bottom: 0;
+  margin-bottom: 40px;
 }
 .goldbar-card {
   text-align: center;
 }
+.goldbar-img-wrap {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .goldbar-img-wrap img {
-  width: 100%;
-  max-width: 180px;
-  height: auto;
+  width: auto;
+  height: 140px;
+  max-width: 100%;
+  object-fit: contain;
   filter: drop-shadow(0 8px 20px rgba(183, 142, 100, 0.2));
 }
 .goldbar-name {
-  font-size: clamp(14px, 2vw, 16px);
+  font-size: clamp(13px, 2vw, 15px);
   font-weight: 500;
   margin: 12px 0 0 0;
   color: #b78e64;
 }
+.notice-box {
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 36px;
+  text-align: center;
+}
+.notice-text {
+  color: #888;
+  font-size: clamp(13px, 2vw, 15px);
+  line-height: 1.9;
+  margin: 0 0 16px 0;
+}
+.notice-text .gold {
+  color: #b78e64;
+  font-weight: 500;
+}
+.notice-text .red {
+  color: #e57373;
+}
+.notice-highlight {
+  color: #666;
+  font-size: clamp(12px, 1.5vw, 14px);
+  line-height: 1.8;
+  margin: 0;
+}
 @media (max-width: 768px) {
-  .price-check-section {
+  .consign-section {
     padding: 60px 16px;
   }
-  .price-check-header {
-    margin-bottom: 40px;
-  }
-  .price-info-box {
-    padding: 32px 24px;
+  .consign-box {
+    padding: 28px 20px;
     border-radius: 20px;
-    margin-bottom: 36px;
+  }
+  .price-bars {
+    gap: 16px;
+    height: 150px;
+  }
+  .price-bar-fill {
+    width: 50px;
+  }
+  .price-bar-fill.gray {
+    height: 80px;
+  }
+  .price-bar-fill.gold {
+    height: 105px;
   }
   .goldbar-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
+    gap: 16px;
+  }
+  .goldbar-img-wrap {
+    height: 120px;
   }
   .goldbar-img-wrap img {
-    max-width: 100px;
+    height: 100px;
   }
   .goldbar-name {
     font-size: 12px;
   }
+  .price-info-box, .notice-box {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
 }
 </style>
-<div class="price-check-section">
-  <div class="price-check-bg"></div>
-  <div class="price-check-content">
+<div class="consign-section">
+  <div class="consign-bg"></div>
+  <div class="consign-content">
+    <div class="consign-header">
+      <span class="consign-badge">GOLD INSIGHT</span>
+      <h2 class="consign-title">
+        <span class="gold">안전하고 빠르게!</span><br>
+        <span class="white">시세보다 유리하게</span><br>
+        <span class="gold">금을 확보하는 방법</span>
+      </h2>
+      <p class="consign-desc">한국금거래소 공식사업협력</p>
+    </div>
+    <div class="consign-box">
+      <h3 class="consign-box-title">중매거래?</h3>
+      <div style="display:flex;align-items:flex-start;gap:20px;">
+        <span class="consign-quote">"</span>
+        <div style="flex:1;">
+          <p class="consign-box-text">
+            골드바 거래 시, 가격차이는 중요한 요소입니다.<br>
+            금은방이나 <span class="gold">금거래소</span>에서는 수수료와 가격 차이로 인해<br>
+            <span class="red">사고 팔 때</span> 불리할 수 있지만,<br>
+            <span class="gold">중매거래</span>를 하게 되면 그 차이를 최소화하고<br>
+            <span class="gold">고객님</span>에게서 더 유리한 거래를 하실 수 있습니다.
+          </p>
+        </div>
+        <span class="consign-quote">"</span>
+      </div>
+    </div>
+    <div class="price-compare">
+      <p class="price-compare-title">가격 차이 비교</p>
+      <div class="price-bars">
+        <div class="price-bar">
+          <div class="price-bar-fill gray"></div>
+          <p class="price-bar-name">금은방</p>
+          <p class="price-bar-sub">금거래소</p>
+          <p class="price-bar-sub" style="color:#b78e64;">10% 이상</p>
+        </div>
+        <div class="price-bar">
+          <div class="price-bar-fill gold">
+            <span class="price-bar-label">2.15% 예상</span>
+          </div>
+          <p class="price-bar-name">중매</p>
+          <p class="price-bar-sub">거래</p>
+          <p class="price-bar-sub" style="color:#b78e64;">차이</p>
+        </div>
+      </div>
+    </div>
     <div class="price-check-header">
       <h2 class="price-check-title">
-        <span class="highlight">적정가</span><span class="white">를 체크하세요!</span>
+        <span class="gold">적정가</span><span class="white">를 체크하세요!</span>
       </h2>
       <p class="price-check-desc">
         현재 개인 간 금 거래에는<br>
@@ -170,10 +382,26 @@
       </div>
       <div class="goldbar-card">
         <div class="goldbar-img-wrap">
-          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/consignment/%ED%83%80%EC%82%AC%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="홍콩로코 골드바">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/consignment/%ED%83%80%EC%82%AC%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="타사 골드바">
         </div>
-        <p class="goldbar-name">홍콩로코 골드바</p>
+        <p class="goldbar-name">타사 골드바</p>
       </div>
+    </div>
+    <div class="notice-box">
+      <p class="notice-text">
+        모두 같은 1돈이라도<br>
+        <span class="gold">시장가격은 다를 수 밖에 없습니다.</span>
+      </p>
+      <p class="notice-text">
+        특히,<br>
+        개인 간 거래 중고품이나 일반 금은방에는<br>
+        <span class="red">판매자가 임의로 가격을 설정하기 때문에</span>
+      </p>
+      <p class="notice-highlight">
+        일반 소비자들은<br>
+        <span class="gold">터무니없는 가격에 구매하게 되는</span><br>
+        경우가 종종 발생합니다.
+      </p>
     </div>
   </div>
 </div>
