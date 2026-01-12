@@ -1,34 +1,56 @@
-<div class="k-page-content">
-  <section class="k-hero">
-    <h1>한국금거래소 경산점</h1>
-    <p>신뢰와 전문성으로 금 투자를 함께합니다</p>
-  </section>
-</div>
-
 <style>
+.k-page-wrapper {
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  min-height: 100vh;
+  position: relative;
+}
+.k-page-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://raw.githubusercontent.com/warren181206-star/homepage/main/images/common/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg') center center / cover no-repeat fixed;
+  pointer-events: none;
+  z-index: 0;
+}
+.k-page-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+}
 .k-page-content {
+  position: relative;
+  z-index: 1;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 80px 20px;
 }
-
 .k-hero {
   text-align: center;
   padding: 80px 20px;
 }
-
 .k-hero h1 {
   font-size: 36px;
-  color: #b8860b;
+  background: linear-gradient(135deg, #b78e64 0%, #d4b896 50%, #b78e64 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 20px;
 }
-
 .k-hero p {
   font-size: 18px;
-  color: #666;
+  color: #888;
 }
-
 @media (max-width: 767px) {
+  .k-page-content {
+    padding: 60px 16px;
+  }
   .k-hero {
     padding: 50px 15px;
   }
@@ -40,3 +62,12 @@
   }
 }
 </style>
+<div class="k-page-wrapper">
+  <div class="k-page-bg"></div>
+  <div class="k-page-content">
+    <section class="k-hero">
+      <h1>한국금거래소 경산점</h1>
+      <p>신뢰와 전문성으로 금 투자를 함께합니다</p>
+    </section>
+  </div>
+</div>

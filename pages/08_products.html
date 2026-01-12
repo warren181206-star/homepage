@@ -18,6 +18,7 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  background: url('https://raw.githubusercontent.com/warren181206-star/homepage/main/images/common/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg') center center / cover no-repeat fixed;
 }
 .products-bg::before {
   content: '';
@@ -26,53 +27,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background:
-    linear-gradient(135deg,
-      #0a0a0a 0%,
-      #151515 25%,
-      #0d0d0d 50%,
-      #181818 75%,
-      #0a0a0a 100%
-    );
-}
-.products-bg::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: repeating-linear-gradient(
-    -55deg,
-    transparent 0px,
-    transparent 8px,
-    rgba(80, 80, 80, 0.03) 8px,
-    rgba(80, 80, 80, 0.03) 9px
-  );
-}
-.products-bg-stripes {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: repeating-linear-gradient(
-    -55deg,
-    transparent 0px,
-    transparent 40px,
-    rgba(60, 60, 60, 0.08) 40px,
-    rgba(60, 60, 60, 0.08) 80px
-  );
-}
-.products-bg-accent {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background:
-    linear-gradient(135deg, rgba(30, 30, 30, 0.9) 0%, transparent 40%),
-    linear-gradient(-45deg, rgba(25, 25, 25, 0.8) 0%, transparent 50%);
+  background: rgba(0, 0, 0, 0.3);
 }
 .products-content {
   position: relative;
@@ -374,10 +329,7 @@
 }
 </style>
 <div class="products-page">
-  <div class="products-bg">
-    <div class="products-bg-stripes"></div>
-    <div class="products-bg-accent"></div>
-  </div>
+  <div class="products-bg"></div>
   <div class="products-content">
     <div class="products-header">
       <span class="products-badge">BEST PRODUCTS</span>
