@@ -18,7 +18,14 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  background: url('https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg') center center / cover no-repeat fixed;
+}
+.souvenir-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .souvenir-bg::before {
   content: '';
@@ -274,7 +281,9 @@
 }
 </style>
 <div class="souvenir-page">
-  <div class="souvenir-bg"></div>
+  <div class="souvenir-bg">
+    <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg" alt="" class="souvenir-bg-img">
+  </div>
   <div class="souvenir-content">
     <div class="souvenir-header">
       <span class="souvenir-badge">PREMIUM GOLD SOUVENIR</span>

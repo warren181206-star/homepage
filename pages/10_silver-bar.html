@@ -18,7 +18,14 @@
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
-  background: url('https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg') center center / cover no-repeat fixed;
+}
+.silver-bg-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .silver-bg::before {
   content: '';
@@ -278,7 +285,9 @@
 }
 </style>
 <div class="silver-page">
-  <div class="silver-bg"></div>
+  <div class="silver-bg">
+    <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg" alt="" class="silver-bg-img">
+  </div>
   <div class="silver-content">
     <div class="silver-header">
       <span class="silver-badge">PREMIUM SILVER BAR</span>
