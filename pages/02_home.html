@@ -314,7 +314,7 @@
           var minutes = parseInt(match[2] || 0);
           var seconds = parseInt(match[3] || 0);
           var totalSeconds = hours * 3600 + minutes * 60 + seconds;
-          return totalSeconds > 60;
+          return totalSeconds > 180;
         });
         if (longVideos.length > 0) {
           renderVideos(longVideos.slice(0, MAX_RESULTS));
