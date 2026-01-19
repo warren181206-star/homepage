@@ -1,452 +1,42 @@
-<style>
-#vm-gold-lineup{
-  background:#000;
-  color:#fff;
-  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  padding:24px 16px 40px;
-}
-.vm-gold-inner{
-  max-width:1200px;
-  margin:0 auto;
-}
-.vm-up{color:#ef002d;}
-.vm-down{color:#207BE7;}
-.vm-same{color:#a2a7b3;}
-.vm-hero-kicker{
-  font-size:14px;
-  color:#f3c89b;
-  margin:0 0 6px;
-}
-.vm-hero-title{
-  font-size:32px;
-  font-weight:800;
-}
-.vm-hero-desc{
-  font-size:14px;
-  margin:0 0 10px;
-  color:#e5e7eb;
-}
-.vm-hero-unit{
-  font-size:13px;
-  color:#d1d5db;
-}
-.vm-board{
-  margin-top:24px;
-}
-.vm-board-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:13px;
-  color:#d1d5db;
-  margin-bottom:6px;
-}
-.vm-board-date{
-  opacity:0;
-}
-.vm-row{
-  display:grid;
-  grid-template-columns:110px repeat(5,1fr);
-  align-items:flex-start;
-}
-.vm-row-head{
-  font-size:13px;
-  color:#cdd3e0;
-  margin-bottom:14px;
-}
-.vm-cell{
-  padding:8px 6px;
-  text-align:center;
-}
-.vm-side{
-  text-align:left;
-  font-weight:600;
-  font-size:14px;
-}
-.vm-row-line{
-  margin-bottom:18px;
-}
-.vm-price{
-  font-size:20px;
-  font-weight:700;
-  margin-bottom:6px;
-}
-.vm-note{
-  font-size:12px;
-  opacity:.8;
-  margin-bottom:3px;
-}
-.vm-diff{
-  font-size:12px;
-  line-height:1.4;
-}
-.vm-only-pc{display:none;}
-.vm-only-mo{display:block;}
-.vm-mobile-table{
-  margin-top:20px;
-}
-.vm-mobile-top{
-  display:flex;
-  justify-content:flex-end;
-  margin-bottom:6px;
-}
-.vm-mobile-date{
-  font-size:12px;
-  color:#d1d5db;
-  opacity:0;
-}
-.vm-row-mo{
-  display:grid;
-  grid-template-columns:1.2fr 1fr 1fr;
-  padding:10px 0;
-  border-bottom:1px solid rgba(255,255,255,.12);
-}
-.vm-header-mo{
-  font-size:13px;
-  font-weight:600;
-  color:#cdd3e0;
-}
-.vm-col-mo strong{
-  font-size:18px;
-  font-weight:700;
-}
-.vm-sub-mo{
-  font-size:12px;
-  opacity:.75;
-  margin-top:2px;
-}
-.vm-note-mo{
-  margin-top:2px;
-}
-.vm-diff-line-mo{
-  margin-top:4px;
-  font-size:12px;
-  line-height:1.4;
-}
-@media (min-width: 900px){
-  #vm-gold-lineup{
-    padding:40px 24px 56px;
-  }
-  .vm-gold-inner{
-    display:grid;
-    grid-template-columns:minmax(260px,380px) minmax(0,1fr);
-    gap:80px;
-    align-items:center;
-  }
-  .vm-board{margin-top:0;}
-  .vm-only-pc{display:block;}
-  .vm-only-mo{display:none;}
-}
-.k-page-wrapper {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #0a0a0a;
-  min-height: 100vh;
-  position: relative;
-}
-.k-page-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  z-index: 0;
-  overflow: hidden;
-}
-.k-page-bg-img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.k-page-bg::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
-}
-.k-page-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 20px;
-}
-.k-hero {
-  text-align: center;
-  padding: 80px 20px;
-}
-.k-hero h1 {
-  font-size: 36px;
-  background: linear-gradient(135deg, #b78e64 0%, #d4b896 50%, #b78e64 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 20px;
-}
-.k-hero p {
-  font-size: 18px;
-  color: #888;
-}
-@media (max-width: 767px) {
-  .k-page-content {
-    padding: 60px 16px;
-  }
-  .k-hero {
-    padding: 50px 15px;
-  }
-  .k-hero h1 {
-    font-size: 24px;
-  }
-  .k-hero p {
-    font-size: 15px;
-  }
-}
-.k-youtube-section {
-  padding: 80px 20px;
-  background: linear-gradient(135deg, #b78e64 0%, #d4b896 50%, #b78e64 100%);
-}
-.k-youtube-container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.k-youtube-header {
-  margin-bottom: 40px;
-}
-.k-youtube-label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.k-youtube-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: #fff;
-  line-height: 1.4;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.k-youtube-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-}
-.k-youtube-item {
-  cursor: pointer;
-  transition: transform 0.3s ease;
-}
-.k-youtube-item:hover {
-  transform: translateY(-4px);
-}
-.k-youtube-thumb {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #ddd;
-}
-.k-youtube-thumb img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.k-youtube-play {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 56px;
-  height: 56px;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s;
-}
-.k-youtube-item:hover .k-youtube-play {
-  background: rgba(255, 0, 0, 0.9);
-}
-.k-youtube-play::after {
-  content: '';
-  width: 0;
-  height: 0;
-  border-left: 18px solid #fff;
-  border-top: 11px solid transparent;
-  border-bottom: 11px solid transparent;
-  margin-left: 4px;
-}
-.k-youtube-info {
-  padding: 16px 4px;
-}
-.k-youtube-video-title {
-  font-size: 15px;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.5;
-  margin-bottom: 8px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-}
-.k-youtube-channel {
-  font-size: 13px;
-  color: rgba(255, 255, 255, 0.8);
-}
-.k-youtube-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.9);
-  z-index: 1000001;
-  align-items: center;
-  justify-content: center;
-}
-.k-youtube-modal.active {
-  display: flex;
-}
-.k-youtube-modal-content {
-  position: relative;
-  width: 90%;
-  max-width: 900px;
-}
-.k-youtube-modal-close {
-  position: absolute;
-  top: -40px;
-  right: 0;
-  font-size: 32px;
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: opacity 0.3s;
-}
-.k-youtube-modal-close:hover {
-  opacity: 0.7;
-}
-.k-youtube-iframe-wrap {
-  position: relative;
-  width: 100%;
-  padding-bottom: 56.25%;
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
-}
-.k-youtube-iframe-wrap iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.k-youtube-loading {
-  text-align: center;
-  padding: 60px 20px;
-  color: #888;
-}
-@media (max-width: 1024px) {
-  .k-youtube-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-  }
-}
-@media (max-width: 767px) {
-  .k-youtube-section {
-    padding: 60px 16px;
-  }
-  .k-youtube-title {
-    font-size: 22px;
-  }
-  .k-youtube-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-  .k-youtube-play {
-    width: 48px;
-    height: 48px;
-  }
-  .k-youtube-play::after {
-    border-left-width: 14px;
-    border-top-width: 9px;
-    border-bottom-width: 9px;
-  }
-}
-</style>
-<div id="vm-gold-lineup">
-  <div class="vm-gold-inner">
-    <div class="vm-hero">
-      <p class="vm-hero-kicker">골드인사이트 오늘의 금시세</p>
-      <h2 class="vm-hero-title">금 시세 라인업</h2>
-      <p class="vm-hero-desc">투자의 첫걸음, 올바른 금시세 확인부터!</p>
-      <p class="vm-hero-unit">단위: 3.75g (자사골드바 기준)</p>
-    </div>
-    <div class="vm-board vm-only-pc">
-      <div class="vm-board-top">
-        <div class="vm-board-top-left"></div>
-        <div class="vm-board-date" id="vm-date-pc">-</div>
-      </div>
-      <div class="vm-row vm-row-head">
-        <div class="vm-cell vm-side"></div>
-        <div class="vm-cell">24K금시세</div>
-        <div class="vm-cell">18K금시세</div>
-        <div class="vm-cell">14K금시세</div>
-        <div class="vm-cell">백금시세</div>
-        <div class="vm-cell">은시세</div>
-      </div>
-      <div id="vm-pc-rows"></div>
-    </div>
-    <div class="vm-mobile-table vm-only-mo">
-      <div class="vm-mobile-top">
-        <div class="vm-mobile-date" id="vm-date-mo">-</div>
-      </div>
-      <div class="vm-row-mo vm-header-mo">
-        <div class="vm-col-mo">종목</div>
-        <div class="vm-col-mo">내가 살 때<br><small>(VAT 포함)</small></div>
-        <div class="vm-col-mo">내가 팔 때<br><small>(금방금방 앱 기준)</small></div>
-      </div>
-      <div id="vm-mo-items"></div>
-    </div>
+<div class="home-page">
+  <div class="home-bg">
+    <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg" alt="" class="home-bg-img">
   </div>
-</div>
-<div class="k-page-wrapper">
-  <div class="k-page-bg">
-    <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg" alt="" class="k-page-bg-img">
-  </div>
-  <div class="k-page-content">
-    <section class="k-hero">
-      <h1>한국금거래소 경산점</h1>
-      <p>신뢰와 전문성으로 금 투자를 함께합니다</p>
+  <div class="home-content">
+    <section id="vm-gold-lineup">
+      <div class="vm-gold-inner">
+        <div class="vm-hero">
+          <p class="vm-hero-kicker">GOLD INSIGHT</p>
+          <h2 class="vm-hero-title">오늘의 금시세</h2>
+          <p class="vm-hero-desc">실시간 귀금속 시세를 확인하세요</p>
+          <p class="vm-hero-unit">단위: 3.75g 기준</p>
+        </div>
+        <div class="vm-cards" id="vm-cards">
+          <div class="vm-card vm-card-loading">
+            <div class="vm-card-name">로딩중...</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="k-hero-section">
+      <div class="k-hero-content">
+        <h1 class="k-hero-title">한국금거래소 경산점</h1>
+        <p class="k-hero-desc">신뢰와 전문성으로 금 투자를 함께합니다</p>
+      </div>
+    </section>
+    <section class="k-youtube-section">
+      <div class="k-youtube-container">
+        <div class="k-youtube-header">
+          <div class="k-youtube-label">골드인사이트 YOUTUBE</div>
+          <h2 class="k-youtube-title">금과 은에 관한 통찰력 '금남일의 골드인사이트'</h2>
+        </div>
+        <div class="k-youtube-grid" id="kYoutubeGrid">
+          <div class="k-youtube-loading">영상을 불러오는 중...</div>
+        </div>
+      </div>
     </section>
   </div>
 </div>
-<section class="k-youtube-section">
-  <div class="k-youtube-container">
-    <div class="k-youtube-header">
-      <div class="k-youtube-label">골드인사이트 YOUTUBE</div>
-      <h2 class="k-youtube-title">금과 은에 관한 통찰력 '금남일의 골드인사이트'</h2>
-    </div>
-    <div class="k-youtube-grid" id="kYoutubeGrid">
-      <div class="k-youtube-loading">영상을 불러오는 중...</div>
-    </div>
-  </div>
-</section>
 <div class="k-youtube-modal" id="kYoutubeModal">
   <div class="k-youtube-modal-content">
     <button class="k-youtube-modal-close" id="kYoutubeModalClose">&times;</button>
@@ -455,99 +45,422 @@
     </div>
   </div>
 </div>
-<script>
-(function() {
-  var CHANNEL_ID = 'UCwhhhta9lIDmnYjyBAgHE7A';
-  var API_KEY = 'AIzaSyCHpuS9f5YwMWt8IQSnHmt0SRdcnpaBLNU';
-  var MAX_RESULTS = 4;
-  var FETCH_COUNT = 30;
-  var grid = document.getElementById('kYoutubeGrid');
-  var modal = document.getElementById('kYoutubeModal');
-  var iframe = document.getElementById('kYoutubeIframe');
-  var closeBtn = document.getElementById('kYoutubeModalClose');
-  function fetchVideos() {
-    var searchUrl = 'https://www.googleapis.com/youtube/v3/search?key=' + API_KEY +
-              '&channelId=' + CHANNEL_ID +
-              '&part=snippet&order=date&maxResults=' + FETCH_COUNT + '&type=video';
-    fetch(searchUrl)
-      .then(function(res) { return res.json(); })
-      .then(function(data) {
-        if (data.items && data.items.length > 0) {
-          var videoIds = data.items.map(function(item) { return item.id.videoId; }).join(',');
-          var detailsUrl = 'https://www.googleapis.com/youtube/v3/videos?key=' + API_KEY +
-                          '&id=' + videoIds + '&part=contentDetails,snippet';
-          return fetch(detailsUrl);
-        } else {
-          throw new Error('No videos');
-        }
-      })
-      .then(function(res) { return res.json(); })
-      .then(function(data) {
-        var longVideos = data.items.filter(function(video) {
-          var duration = video.contentDetails.duration;
-          var match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
-          if (!match) return false;
-          var hours = parseInt(match[1] || 0);
-          var minutes = parseInt(match[2] || 0);
-          var seconds = parseInt(match[3] || 0);
-          var totalSeconds = hours * 3600 + minutes * 60 + seconds;
-          return totalSeconds > 180;
-        });
-        if (longVideos.length > 0) {
-          renderVideos(longVideos.slice(0, MAX_RESULTS));
-        } else {
-          grid.innerHTML = '<div class="k-youtube-loading">영상을 불러올 수 없습니다.</div>';
-        }
-      })
-      .catch(function() {
-        grid.innerHTML = '<div class="k-youtube-loading">영상을 불러올 수 없습니다.</div>';
-      });
+<style>
+.home-page{
+  font-family:Pretendard,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:#0a0a0a;
+  min-height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+.home-page *,.home-page *::before,.home-page *::after{
+  box-sizing:border-box;
+}
+.home-bg{
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+.home-bg-img{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.home-bg::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;bottom:0;
+  background:rgba(0,0,0,0.3);
+}
+.home-content{
+  position:relative;
+  z-index:1;
+}
+#vm-gold-lineup{
+  padding:80px 20px;
+}
+.vm-gold-inner{
+  max-width:1200px;
+  margin:0 auto;
+}
+.vm-up{color:#ef002d;}
+.vm-down{color:#207BE7;}
+.vm-same{color:#a2a7b3;}
+.vm-hero{
+  text-align:center;
+  margin-bottom:40px;
+}
+.vm-hero-kicker{
+  font-size:12px;
+  letter-spacing:3px;
+  color:#b78e64;
+  margin:0 0 8px;
+}
+.vm-hero-title{
+  font-size:36px;
+  margin:0 0 12px;
+  font-weight:800;
+  background:linear-gradient(135deg,#d4b896 0%,#b78e64 50%,#8b6914 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.vm-hero-desc{
+  font-size:15px;
+  margin:0 0 8px;
+  color:#a0a0a0;
+}
+.vm-hero-unit{
+  font-size:13px;
+  color:#666;
+}
+.vm-cards{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:20px;
+}
+.vm-card{
+  position:relative;
+  background:linear-gradient(145deg,rgba(20,15,10,0.85) 0%,rgba(10,8,5,0.95) 100%);
+  border:1px solid rgba(183,142,100,0.4);
+  border-radius:20px;
+  padding:28px 20px;
+  text-align:center;
+  transition:all 0.4s cubic-bezier(0.4,0,0.2,1);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  overflow:hidden;
+}
+.vm-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:-100%;
+  width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(212,184,150,0.15),transparent);
+  transition:left 0.6s ease;
+}
+.vm-card::after{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(212,184,150,0.6),transparent);
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.vm-card:hover{
+  transform:translateY(-8px) scale(1.02);
+  border-color:rgba(212,184,150,0.7);
+  box-shadow:0 20px 40px rgba(0,0,0,0.5),0 0 30px rgba(183,142,100,0.15);
+}
+.vm-card:hover::before{
+  left:100%;
+}
+.vm-card:hover::after{
+  opacity:1;
+}
+.vm-card-icon{
+  font-size:36px;
+  margin-bottom:16px;
+  filter:drop-shadow(0 4px 8px rgba(183,142,100,0.3));
+}
+.vm-card-name{
+  font-size:18px;
+  font-weight:700;
+  background:linear-gradient(135deg,#f0dfc0 0%,#d4b896 40%,#b78e64 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:6px;
+  letter-spacing:0.5px;
+}
+.vm-card-sub{
+  font-size:12px;
+  color:#888;
+  margin-bottom:20px;
+  letter-spacing:1px;
+}
+.vm-card-section{
+  margin-bottom:18px;
+}
+.vm-card-section:last-child{
+  margin-bottom:0;
+}
+.vm-card-label{
+  font-size:12px;
+  color:#999;
+  margin-bottom:8px;
+  font-weight:500;
+}
+.vm-card-price{
+  font-size:24px;
+  font-weight:800;
+  margin-bottom:6px;
+  color:#fff;
+}
+.vm-card-diff{
+  font-size:12px;
+  line-height:1.5;
+  font-weight:600;
+}
+.vm-card-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(183,142,100,0.4),transparent);
+  margin:18px 0;
+}
+.k-hero-section{
+  padding:80px 20px;
+  text-align:center;
+}
+.k-hero-content{
+  max-width:1200px;
+  margin:0 auto;
+}
+.k-hero-title{
+  font-size:36px;
+  font-weight:800;
+  background:linear-gradient(135deg,#b78e64 0%,#d4b896 50%,#b78e64 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin:0 0 20px;
+}
+.k-hero-desc{
+  font-size:18px;
+  color:#777;
+  margin:0;
+}
+.k-youtube-section{
+  padding:80px 20px;
+}
+.k-youtube-container{
+  max-width:1200px;
+  margin:0 auto;
+}
+.k-youtube-header{
+  margin-bottom:40px;
+}
+.k-youtube-label{
+  font-size:14px;
+  font-weight:600;
+  color:#b78e64;
+  letter-spacing:1px;
+  margin-bottom:12px;
+}
+.k-youtube-title{
+  font-size:28px;
+  font-weight:700;
+  color:#fff;
+  line-height:1.4;
+}
+.k-youtube-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.k-youtube-item{
+  cursor:pointer;
+  transition:transform 0.3s ease;
+}
+.k-youtube-item:hover{
+  transform:translateY(-4px);
+}
+.k-youtube-thumb{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  border-radius:8px;
+  overflow:hidden;
+  background:#222;
+}
+.k-youtube-thumb img{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  object-fit:cover;
+}
+.k-youtube-play{
+  position:absolute;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:56px;height:56px;
+  background:rgba(0,0,0,0.7);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:background 0.3s;
+}
+.k-youtube-item:hover .k-youtube-play{
+  background:rgba(255,0,0,0.9);
+}
+.k-youtube-play::after{
+  content:'';
+  width:0;height:0;
+  border-left:18px solid #fff;
+  border-top:11px solid transparent;
+  border-bottom:11px solid transparent;
+  margin-left:4px;
+}
+.k-youtube-info{
+  padding:16px 4px;
+}
+.k-youtube-video-title{
+  font-size:15px;
+  font-weight:600;
+  color:#fff;
+  line-height:1.5;
+  margin-bottom:8px;
+  display:-webkit-box;
+  -webkit-line-clamp:2;
+  -webkit-box-orient:vertical;
+  overflow:hidden;
+}
+.k-youtube-channel{
+  font-size:13px;
+  color:rgba(255,255,255,0.8);
+}
+.k-youtube-modal{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;height:100%;
+  background:rgba(0,0,0,0.9);
+  z-index:1000001;
+  align-items:center;
+  justify-content:center;
+}
+.k-youtube-modal.active{
+  display:flex;
+}
+.k-youtube-modal-content{
+  position:relative;
+  width:90%;
+  max-width:900px;
+}
+.k-youtube-modal-close{
+  position:absolute;
+  top:-40px;right:0;
+  font-size:32px;
+  color:#fff;
+  background:none;
+  border:none;
+  cursor:pointer;
+  transition:opacity 0.3s;
+}
+.k-youtube-modal-close:hover{
+  opacity:0.7;
+}
+.k-youtube-iframe-wrap{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  background:#000;
+  border-radius:8px;
+  overflow:hidden;
+}
+.k-youtube-iframe-wrap iframe{
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  border:none;
+}
+.k-youtube-loading{
+  text-align:center;
+  padding:60px 20px;
+  color:#888;
+}
+@media (max-width:1200px){
+  .vm-cards{
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
   }
-  function renderVideos(videos) {
-    var html = '';
-    videos.forEach(function(video) {
-      var videoId = video.id;
-      var title = video.snippet.title;
-      var thumb = video.snippet.thumbnails.high ? video.snippet.thumbnails.high.url : video.snippet.thumbnails.medium.url;
-      var channel = video.snippet.channelTitle;
-      html += '<div class="k-youtube-item" data-video-id="' + videoId + '">' +
-              '<div class="k-youtube-thumb">' +
-              '<img src="' + thumb + '" alt="' + title + '">' +
-              '<div class="k-youtube-play"></div>' +
-              '</div>' +
-              '<div class="k-youtube-info">' +
-              '<div class="k-youtube-video-title">' + title + '</div>' +
-              '<div class="k-youtube-channel">' + channel + '</div>' +
-              '</div></div>';
-    });
-    grid.innerHTML = html;
-    grid.querySelectorAll('.k-youtube-item').forEach(function(item) {
-      item.addEventListener('click', function() {
-        var vid = this.getAttribute('data-video-id');
-        openModal(vid);
-      });
-    });
+}
+@media (max-width:1024px){
+  .k-youtube-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
   }
-  function openModal(videoId) {
-    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+}
+@media (max-width:767px){
+  #vm-gold-lineup{
+    padding:60px 16px;
   }
-  function closeModal() {
-    modal.classList.remove('active');
-    iframe.src = '';
-    document.body.style.overflow = '';
+  .vm-hero-title{
+    font-size:28px;
   }
-  closeBtn.addEventListener('click', closeModal);
-  modal.addEventListener('click', function(e) {
-    if (e.target === modal) closeModal();
-  });
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeModal();
-  });
-  fetchVideos();
-})();
-</script>
+  .vm-cards{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+  .vm-card{
+    padding:22px 14px;
+    border-radius:16px;
+  }
+  .vm-card-icon{
+    font-size:30px;
+    margin-bottom:12px;
+  }
+  .vm-card-name{
+    font-size:16px;
+  }
+  .vm-card-sub{
+    font-size:11px;
+    margin-bottom:16px;
+  }
+  .vm-card-price{
+    font-size:20px;
+  }
+  .vm-card-label{
+    font-size:11px;
+  }
+  .k-hero-section{
+    padding:60px 16px;
+  }
+  .k-hero-title{
+    font-size:26px;
+  }
+  .k-hero-desc{
+    font-size:15px;
+  }
+  .k-youtube-section{
+    padding:60px 16px;
+  }
+  .k-youtube-title{
+    font-size:22px;
+  }
+  .k-youtube-grid{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  .k-youtube-play{
+    width:48px;height:48px;
+  }
+  .k-youtube-play::after{
+    border-left-width:14px;
+    border-top-width:9px;
+    border-bottom-width:9px;
+  }
+}
+@media (max-width:480px){
+  .vm-cards{
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+  .vm-card{
+    padding:24px 18px;
+  }
+  .vm-card-name{
+    font-size:18px;
+  }
+  .vm-card-price{
+    font-size:22px;
+  }
+}
+</style>
 <script>
 const API_URL = "https://wispy-salad-7884.crycow68004.workers.dev/prices";
 function vmComma(v){
@@ -577,109 +490,136 @@ async function vmLoadPrices(){
   try{
     const res = await fetch(API_URL, { cache: "no-cache" });
     const json = await res.json();
-    const dateText = json.date || "";
     const items = json.items || {};
-    const pcDate = document.getElementById("vm-date-pc");
-    const moDate = document.getElementById("vm-date-mo");
-    if(pcDate) pcDate.textContent = dateText;
-    if(moDate) moDate.textContent = dateText;
     const metals = [
-      { key:"gold24", pcName:"24K금시세", moName:"24K금시세", moSub:"Gold24k · 3.75g", buyNote:"" },
-      { key:"gold18", pcName:"18K금시세", moName:"18K 금시세", moSub:"Gold18k · 3.75g", buyNote:"제품시세적용" },
-      { key:"gold14", pcName:"14K금시세", moName:"14K 금시세", moSub:"Gold14k · 3.75g", buyNote:"제품시세적용" },
-      { key:"platinum", pcName:"백금시세", moName:"백금시세", moSub:"Platinum · 3.75g", buyNote:"" },
-      { key:"silver", pcName:"은시세", moName:"은시세", moSub:"Silver · 3.75g", buyNote:"" }
+      { key:"gold24", name:"24K 순금", sub:"Gold 24K", icon:"🥇" },
+      { key:"gold18", name:"18K 금", sub:"Gold 18K", icon:"🏅", buyNote:true },
+      { key:"gold14", name:"14K 금", sub:"Gold 14K", icon:"🏅", buyNote:true },
+      { key:"platinum", name:"백금", sub:"Platinum", icon:"💎" },
+      { key:"silver", name:"은", sub:"Silver", icon:"🥈" }
     ];
-    let pcHTML = "";
-    pcHTML += '<div class="vm-row vm-row-line">';
-    pcHTML += '<div class="vm-cell vm-side"><span class="vm-side-label">내가살때</span></div>';
-    metals.forEach(m=>{
-      const buy = items[m.key + "_buy"];
-      if(!buy){
-        pcHTML += '<div class="vm-cell"></div>';
-        return;
-      }
-      if(m.key === "gold18" || m.key === "gold14"){
-        pcHTML += `
-          <div class="vm-cell">
-            <div class="vm-price">제품시세적용</div>
-          </div>
-        `;
-        return;
-      }
-      pcHTML += `
-        <div class="vm-cell">
-          <div class="vm-price">${vmComma(buy.price)}원</div>
-          ${m.buyNote ? `<div class="vm-note">${m.buyNote}</div>` : ""}
-          <div class="vm-diff ${vmUpDownClass(buy.diff)}">
-            ${vmArrow(buy.diff)} ${vmComma(Math.abs(buy.diff))}<br>
-            (${vmSign(buy.diffPer)}%)
-          </div>
-        </div>
-      `;
-    });
-    pcHTML += "</div>";
-    pcHTML += '<div class="vm-row vm-row-line">';
-    pcHTML += '<div class="vm-cell vm-side"><span class="vm-side-label">내가팔때</span></div>';
-    metals.forEach(m=>{
-      const sell = items[m.key + "_sell"];
-      if(!sell){
-        pcHTML += '<div class="vm-cell"></div>';
-        return;
-      }
-      pcHTML += `
-        <div class="vm-cell">
-          <div class="vm-price">${vmComma(sell.price)}원</div>
-          <div class="vm-diff ${vmUpDownClass(sell.diff)}">
-            ${vmArrow(sell.diff)} ${vmComma(Math.abs(sell.diff))}<br>
-            (${vmSign(sell.diffPer)}%)
-          </div>
-        </div>
-      `;
-    });
-    pcHTML += "</div>";
-    const pcRowsEl = document.getElementById("vm-pc-rows");
-    if(pcRowsEl) pcRowsEl.innerHTML = pcHTML;
-    let moHTML = "";
+    let html = "";
     metals.forEach(m=>{
       const buy = items[m.key + "_buy"];
       const sell = items[m.key + "_sell"];
       if(!buy || !sell) return;
-      const buyText = (m.key === "gold18" || m.key === "gold14")
-        ? "제품시세적용"
-        : `${vmComma(buy.price)}원`;
-      const buyDiffHtml = (m.key === "gold18" || m.key === "gold14")
-        ? ""
-        : `<div class="vm-diff-line-mo ${vmUpDownClass(buy.diff)}">
-            ${vmArrow(buy.diff)} ${vmComma(Math.abs(buy.diff))}<br>
-            (${vmSign(buy.diffPer)}%)
-          </div>`;
-      moHTML += `
-        <div class="vm-row-mo">
-          <div class="vm-col-mo">
-            <strong>${m.moName}</strong>
-            <div class="vm-sub-mo">${m.moSub}</div>
+      const buyText = m.buyNote ? "제품시세적용" : vmComma(buy.price) + "원";
+      const buyDiff = m.buyNote ? "" : `<div class="vm-card-diff ${vmUpDownClass(buy.diff)}">${vmArrow(buy.diff)} ${vmComma(Math.abs(buy.diff))} (${vmSign(buy.diffPer)}%)</div>`;
+      html += `
+        <div class="vm-card">
+          <div class="vm-card-icon">${m.icon}</div>
+          <div class="vm-card-name">${m.name}</div>
+          <div class="vm-card-sub">${m.sub}</div>
+          <div class="vm-card-section">
+            <div class="vm-card-label">살 때 (VAT포함)</div>
+            <div class="vm-card-price">${buyText}</div>
+            ${buyDiff}
           </div>
-          <div class="vm-col-mo">
-            <strong>${buyText}</strong>
-            ${buyDiffHtml}
-          </div>
-          <div class="vm-col-mo">
-            <strong>${vmComma(sell.price)}원</strong>
-            <div class="vm-diff-line-mo ${vmUpDownClass(sell.diff)}">
-              ${vmArrow(sell.diff)} ${vmComma(Math.abs(sell.diff))}<br>
-              (${vmSign(sell.diffPer)}%)
-            </div>
+          <div class="vm-card-divider"></div>
+          <div class="vm-card-section">
+            <div class="vm-card-label">팔 때</div>
+            <div class="vm-card-price">${vmComma(sell.price)}원</div>
+            <div class="vm-card-diff ${vmUpDownClass(sell.diff)}">${vmArrow(sell.diff)} ${vmComma(Math.abs(sell.diff))} (${vmSign(sell.diffPer)}%)</div>
           </div>
         </div>
       `;
     });
-    const moItemsEl = document.getElementById("vm-mo-items");
-    if(moItemsEl) moItemsEl.innerHTML = moHTML;
+    document.getElementById("vm-cards").innerHTML = html;
   }catch(e){
     console.log("금 시세 로드 에러:", e);
   }
 }
 vmLoadPrices();
 setInterval(vmLoadPrices, 3600 * 1000);
+(function(){
+  var CHANNEL_ID = 'UCwhhhta9lIDmnYjyBAgHE7A';
+  var API_KEY = 'AIzaSyCHpuS9f5YwMWt8IQSnHmt0SRdcnpaBLNU';
+  var MAX_RESULTS = 4;
+  var FETCH_COUNT = 30;
+  var grid = document.getElementById('kYoutubeGrid');
+  var modal = document.getElementById('kYoutubeModal');
+  var iframe = document.getElementById('kYoutubeIframe');
+  var closeBtn = document.getElementById('kYoutubeModalClose');
+  function fetchVideos(){
+    var searchUrl = 'https://www.googleapis.com/youtube/v3/search?key=' + API_KEY +
+              '&channelId=' + CHANNEL_ID +
+              '&part=snippet&order=date&maxResults=' + FETCH_COUNT + '&type=video';
+    fetch(searchUrl)
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if(data.items && data.items.length > 0){
+          var videoIds = data.items.map(function(item){ return item.id.videoId; }).join(',');
+          var detailsUrl = 'https://www.googleapis.com/youtube/v3/videos?key=' + API_KEY +
+                          '&id=' + videoIds + '&part=contentDetails,snippet';
+          return fetch(detailsUrl);
+        } else {
+          throw new Error('No videos');
+        }
+      })
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        var longVideos = data.items.filter(function(video){
+          var duration = video.contentDetails.duration;
+          var match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
+          if(!match) return false;
+          var hours = parseInt(match[1] || 0);
+          var minutes = parseInt(match[2] || 0);
+          var seconds = parseInt(match[3] || 0);
+          var totalSeconds = hours * 3600 + minutes * 60 + seconds;
+          return totalSeconds > 180;
+        });
+        if(longVideos.length > 0){
+          renderVideos(longVideos.slice(0, MAX_RESULTS));
+        } else {
+          grid.innerHTML = '<div class="k-youtube-loading">영상을 불러올 수 없습니다.</div>';
+        }
+      })
+      .catch(function(){
+        grid.innerHTML = '<div class="k-youtube-loading">영상을 불러올 수 없습니다.</div>';
+      });
+  }
+  function renderVideos(videos){
+    var html = '';
+    videos.forEach(function(video){
+      var videoId = video.id;
+      var title = video.snippet.title;
+      var thumb = video.snippet.thumbnails.high ? video.snippet.thumbnails.high.url : video.snippet.thumbnails.medium.url;
+      var channel = video.snippet.channelTitle;
+      html += '<div class="k-youtube-item" data-video-id="' + videoId + '">' +
+              '<div class="k-youtube-thumb">' +
+              '<img src="' + thumb + '" alt="' + title + '">' +
+              '<div class="k-youtube-play"></div>' +
+              '</div>' +
+              '<div class="k-youtube-info">' +
+              '<div class="k-youtube-video-title">' + title + '</div>' +
+              '<div class="k-youtube-channel">' + channel + '</div>' +
+              '</div></div>';
+    });
+    grid.innerHTML = html;
+    grid.querySelectorAll('.k-youtube-item').forEach(function(item){
+      item.addEventListener('click', function(){
+        var vid = this.getAttribute('data-video-id');
+        openModal(vid);
+      });
+    });
+  }
+  function openModal(videoId){
+    iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1';
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    modal.classList.remove('active');
+    iframe.src = '';
+    document.body.style.overflow = '';
+  }
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeModal();
+  });
+  fetchVideos();
+})();
 </script>
