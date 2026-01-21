@@ -5,7 +5,7 @@
   <div class="home-content">
     <section class="k-goldbar-video-section">
       <div class="k-goldbar-video-container">
-        <video class="k-goldbar-video" id="kGoldbarVideo" autoplay muted loop playsinline>
+        <video class="k-goldbar-video" id="kGoldbarVideo" muted playsinline preload="auto">
           <source src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/goldbar-video.webm" type="video/webm">
         </video>
       </div>
@@ -186,12 +186,8 @@
   padding:60px 20px 40px;
 }
 .k-goldbar-video-container{
-  max-width:600px;
+  max-width:500px;
   margin:0 auto;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 20px 60px rgba(0,0,0,0.5),0 0 40px rgba(183,142,100,0.2);
-  border:1px solid rgba(183,142,100,0.3);
 }
 .k-goldbar-video{
   width:100%;
@@ -203,8 +199,7 @@
     padding:40px 16px 20px;
   }
   .k-goldbar-video-container{
-    max-width:100%;
-    border-radius:16px;
+    max-width:280px;
   }
 }
 .home-page{
@@ -1340,15 +1335,20 @@ setInterval(vmLoadPrices, 3600 * 1000);
 (function(){
   var video = document.getElementById('kGoldbarVideo');
   if(!video) return;
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-  }, { threshold: 0.3 });
-  observer.observe(video);
+  var duration = 0;
+  video.addEventListener('loadedmetadata', function(){
+    duration = video.duration;
+  });
+  function updateVideoTime(){
+    if(!duration) return;
+    var rect = video.getBoundingClientRect();
+    var windowHeight = window.innerHeight;
+    var videoCenter = rect.top + rect.height / 2;
+    var scrollProgress = 1 - (videoCenter / windowHeight);
+    scrollProgress = Math.max(0, Math.min(1, scrollProgress));
+    video.currentTime = scrollProgress * duration;
+  }
+  window.addEventListener('scroll', updateVideoTime);
+  updateVideoTime();
 })();
 </script>
