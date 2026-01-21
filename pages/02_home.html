@@ -35,6 +35,48 @@
         </div>
       </div>
     </section>
+    <section class="k-products-section">
+      <div class="k-products-container">
+        <div class="k-products-grid">
+          <a href="/gold-bar" class="k-product-card">
+            <div class="k-product-img">
+              <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/10g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="10g 골드바">
+            </div>
+            <div class="k-product-info">
+              <h3 class="k-product-title">한국금거래소 10g 골드바</h3>
+              <p class="k-product-desc">전략적 운용의 시작</p>
+            </div>
+          </a>
+          <a href="/gold-bar" class="k-product-card">
+            <div class="k-product-img">
+              <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/37.5g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="37.5g 골드바">
+            </div>
+            <div class="k-product-info">
+              <h3 class="k-product-title">한국금거래소 37.5g 골드바</h3>
+              <p class="k-product-desc">안정성과 실속의 균형점</p>
+            </div>
+          </a>
+          <a href="/gold-bar" class="k-product-card">
+            <div class="k-product-img">
+              <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/100g%20%EA%B3%A8%EB%93%9C%EB%B0%94.png" alt="100g 골드바">
+            </div>
+            <div class="k-product-info">
+              <h3 class="k-product-title">한국금거래소 100g 골드바</h3>
+              <p class="k-product-desc">단가메리트가 돋보이는 핵심중량</p>
+            </div>
+          </a>
+          <a href="/silver-bar" class="k-product-card k-product-silver">
+            <div class="k-product-img">
+              <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/1000g%20%EC%8B%A4%EB%B2%84%EB%B0%94.png" alt="1Kg 실버바">
+            </div>
+            <div class="k-product-info">
+              <h3 class="k-product-title">한국금거래소 1Kg 실버바</h3>
+              <p class="k-product-desc">은투자자들의 첫 번째 선택</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
 <div class="k-youtube-modal" id="kYoutubeModal">
@@ -233,6 +275,64 @@
   color:#777;
   margin:0;
 }
+.k-products-section{
+  padding:80px 20px;
+  background:rgba(255,255,255,0.97);
+}
+.k-products-container{
+  max-width:1400px;
+  margin:0 auto;
+}
+.k-products-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:24px;
+}
+.k-product-card{
+  display:block;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  text-decoration:none !important;
+  transition:all 0.3s ease;
+  border:1px solid #eee;
+}
+.k-product-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 12px 32px rgba(0,0,0,0.1);
+}
+.k-product-img{
+  position:relative;
+  padding:40px 20px;
+  background:#f9f9f9;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:280px;
+}
+.k-product-img img{
+  max-width:100%;
+  max-height:200px;
+  object-fit:contain;
+}
+.k-product-silver .k-product-img{
+  border-bottom:2px dashed #ddd;
+}
+.k-product-info{
+  padding:24px 20px;
+  border-top:1px solid rgba(183,142,100,0.3);
+}
+.k-product-title{
+  font-size:16px;
+  font-weight:700;
+  color:#222;
+  margin:0 0 8px;
+}
+.k-product-desc{
+  font-size:14px;
+  color:#888;
+  margin:0;
+}
 .k-youtube-section{
   padding:80px 20px;
 }
@@ -380,6 +480,10 @@
   }
 }
 @media (max-width:1024px){
+  .k-products-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
   .k-youtube-grid{
     grid-template-columns:repeat(2,1fr);
     gap:20px;
@@ -425,6 +529,23 @@
   }
   .k-hero-desc{
     font-size:15px;
+  }
+  .k-products-section{
+    padding:60px 16px;
+  }
+  .k-products-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .k-product-img{
+    min-height:200px;
+    padding:30px 16px;
+  }
+  .k-product-img img{
+    max-height:150px;
+  }
+  .k-product-info{
+    padding:20px 16px;
   }
   .k-youtube-section{
     padding:60px 16px;
