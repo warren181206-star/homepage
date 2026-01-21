@@ -184,29 +184,39 @@
 <style>
 .k-goldbar-scroll-section{
   position:relative;
-  height:200vh;
-}
-.k-goldbar-sticky{
-  position:sticky;
-  top:0;
-  height:100vh;
+  height:auto;
   display:flex;
   align-items:center;
   justify-content:center;
-  overflow:hidden;
+  padding:60px 20px;
+}
+.k-goldbar-scroll-section.locked{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:100;
+  padding:0;
+  background:rgba(10,10,10,0.95);
+}
+.k-goldbar-sticky{
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 .k-goldbar-video{
   width:100%;
-  max-width:600px;
+  max-width:500px;
   height:auto;
   display:block;
 }
 @media (max-width:767px){
   .k-goldbar-scroll-section{
-    height:150vh;
+    padding:40px 16px;
   }
   .k-goldbar-video{
-    max-width:320px;
+    max-width:280px;
   }
 }
 .home-page{
@@ -1345,41 +1355,67 @@ setInterval(vmLoadPrices, 3600 * 1000);
   if(!section || !video) return;
   var duration = 0;
   var isReady = false;
+  var isLocked = false;
+  var isPlaying = false;
+  var lockScrollY = 0;
+  var hasPlayed = false;
   video.addEventListener('loadedmetadata', function(){
     duration = video.duration;
     isReady = true;
     video.currentTime = 0;
-    updateVideoTime();
   });
   video.addEventListener('canplaythrough', function(){
     if(duration > 0) isReady = true;
   });
-  function updateVideoTime(){
-    if(!isReady || !duration) return;
-    var sectionRect = section.getBoundingClientRect();
-    var sectionTop = sectionRect.top;
-    var sectionHeight = sectionRect.height;
+  video.addEventListener('ended', function(){
+    unlock();
+    hasPlayed = true;
+  });
+  function lock(){
+    if(isLocked) return;
+    isLocked = true;
+    isPlaying = true;
+    lockScrollY = window.scrollY;
+    section.classList.add('locked');
+    document.body.style.overflow = 'hidden';
+    video.currentTime = 0;
+    video.play();
+  }
+  function unlock(){
+    if(!isLocked) return;
+    isLocked = false;
+    isPlaying = false;
+    section.classList.remove('locked');
+    document.body.style.overflow = '';
+  }
+  function checkPosition(){
+    if(hasPlayed || isLocked || !isReady) return;
+    var rect = section.getBoundingClientRect();
     var viewportHeight = window.innerHeight;
-    var scrollableDistance = sectionHeight - viewportHeight;
-    if(scrollableDistance <= 0) return;
-    var scrolled = -sectionTop;
-    var progress = scrolled / scrollableDistance;
-    progress = Math.max(0, Math.min(1, progress));
-    var targetTime = progress * duration;
-    if(Math.abs(video.currentTime - targetTime) > 0.05){
-      video.currentTime = targetTime;
+    var sectionCenter = rect.top + rect.height / 2;
+    var viewportCenter = viewportHeight / 2;
+    var threshold = viewportHeight * 0.3;
+    if(Math.abs(sectionCenter - viewportCenter) < threshold){
+      lock();
     }
   }
-  var ticking = false;
   window.addEventListener('scroll', function(){
-    if(!ticking){
-      window.requestAnimationFrame(function(){
-        updateVideoTime();
-        ticking = false;
-      });
-      ticking = true;
+    if(isLocked){
+      window.scrollTo(0, lockScrollY);
+      return;
     }
+    checkPosition();
   });
-  updateVideoTime();
+  window.addEventListener('wheel', function(e){
+    if(isLocked){
+      e.preventDefault();
+    }
+  }, {passive:false});
+  window.addEventListener('touchmove', function(e){
+    if(isLocked){
+      e.preventDefault();
+    }
+  }, {passive:false});
+  checkPosition();
 })();
 </script>
