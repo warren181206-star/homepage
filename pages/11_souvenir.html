@@ -133,9 +133,9 @@
 }
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 32px;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 .product-card {
@@ -245,20 +245,16 @@
   transform: scale(1.1);
   box-shadow: 0 8px 24px rgba(183, 142, 100, 0.4);
 }
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    max-width: 450px;
   }
 }
 @media (max-width: 768px) {
   .souvenir-content {
     padding: 60px 24px 80px;
-  }
-  .product-grid {
-    grid-template-columns: 1fr;
-    gap: 28px;
-    max-width: 450px;
   }
   .souvenir-header {
     margin-bottom: 60px;
