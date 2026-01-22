@@ -133,9 +133,9 @@
 }
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
-  max-width: 1100px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 .product-card {
@@ -245,6 +245,12 @@
   transform: scale(1.1);
   box-shadow: 0 8px 24px rgba(183, 142, 100, 0.4);
 }
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
 @media (max-width: 768px) {
   .souvenir-content {
     padding: 60px 24px 80px;
@@ -315,6 +321,16 @@
         <p class="product-name">한국금거래소</p>
         <p class="product-weight">백억수표</p>
         <p class="product-spec">3.75g (999.9‰)</p>
+        <p class="product-price">시세변동</p>
+        <div class="product-link">→</div>
+      </a>
+      <a href="https://gyeongsan.koreagoldx.co.kr/product/list?categoryNo=4" target="_blank" class="product-card">
+        <div class="product-img-wrap">
+          <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%8F%99%EB%AC%BC%ED%98%95%EC%83%81.png" alt="동물형상">
+        </div>
+        <p class="product-name">한국금거래소</p>
+        <p class="product-weight">동물형상</p>
+        <p class="product-spec">다양한 규격</p>
         <p class="product-price">시세변동</p>
         <div class="product-link">→</div>
       </a>
