@@ -1,21 +1,24 @@
 <style>
-.k-page-wrapper {
+.refining-section {
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   background: #0a0a0a;
-  min-height: 100vh;
+  padding: 80px 20px;
   position: relative;
+  overflow: hidden;
 }
-.k-page-bg {
+.refining-section *, .refining-section *::before, .refining-section *::after {
+  box-sizing: border-box;
+}
+.refining-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  pointer-events: none;
   z-index: 0;
-  overflow: hidden;
+  pointer-events: none;
 }
-.k-page-bg-img {
+.refining-bg-img {
   position: absolute;
   top: 0;
   left: 0;
@@ -23,7 +26,7 @@
   height: 100%;
   object-fit: cover;
 }
-.k-page-bg::before {
+.refining-bg::after {
   content: '';
   position: absolute;
   top: 0;
@@ -31,47 +34,478 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
 }
-.k-page-content {
+.refining-content {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 80px 20px;
 }
-.k-section {
-  padding: 40px 0;
+.refining-header {
+  text-align: center;
+  margin-bottom: 60px;
 }
-.k-section h2 {
-  font-size: 28px;
+.refining-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  border: 1px solid rgba(183, 142, 100, 0.3);
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #b78e64;
+  background: rgba(183, 142, 100, 0.08);
+  margin-bottom: 20px;
+}
+.refining-title {
+  font-size: clamp(32px, 6vw, 48px);
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  line-height: 1.3;
+}
+.refining-title .gold {
   background: linear-gradient(135deg, #b78e64 0%, #d4b896 50%, #b78e64 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 20px;
 }
-.k-section p {
-  font-size: 16px;
+.refining-title .silver {
+  background: linear-gradient(135deg, #999 0%, #ccc 50%, #999 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.refining-title .white {
+  color: #fff;
+}
+.refining-desc {
   color: #888;
+  font-size: clamp(15px, 2.5vw, 18px);
+  margin: 0;
   line-height: 1.8;
 }
-@media (max-width: 767px) {
-  .k-page-content {
+.refining-banner {
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 60px;
+  position: relative;
+}
+.refining-banner-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+.refining-banner-icon {
+  width: 100%;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(25, 20, 15, 0.9) 0%, rgba(15, 12, 8, 0.95) 100%);
+}
+.refining-banner-icon svg {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 4px 20px rgba(183, 142, 100, 0.2));
+}
+.refining-banner-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px;
+  text-align: left;
+}
+.refining-banner-title {
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+.refining-banner-title .gold {
+  color: #b78e64;
+}
+.refining-banner-desc {
+  color: #aaa;
+  font-size: clamp(14px, 2vw, 16px);
+  margin: 0;
+  line-height: 1.8;
+}
+.process-section {
+  margin-bottom: 60px;
+}
+.process-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.process-header-bar {
+  width: 4px;
+  height: 70px;
+  background: #b78e64;
+  flex-shrink: 0;
+}
+.process-title {
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+}
+.process-sub {
+  font-size: clamp(13px, 2vw, 15px);
+  color: #888;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin: 8px 0 0 0;
+}
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.process-step {
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 40px 32px;
+  text-align: center;
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.step-icon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 24px;
+}
+.step-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: #b78e64;
+  stroke-width: 1.5;
+  fill: none;
+}
+.step-title {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px 0;
+  line-height: 1.4;
+}
+.step-sub {
+  font-size: clamp(11px, 1.5vw, 13px);
+  color: #b78e64;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin: 0 0 12px 0;
+}
+.step-desc {
+  font-size: clamp(13px, 2vw, 15px);
+  color: #888;
+  margin: 0;
+  line-height: 1.8;
+}
+.step-arrow {
+  position: absolute;
+  right: -16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 12px solid #b78e64;
+  z-index: 2;
+}
+.process-step:nth-child(2) .step-arrow,
+.process-step:nth-child(4) .step-arrow {
+  display: none;
+}
+.info-box {
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.6) 0%, rgba(20, 20, 20, 0.8) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 40px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.info-box-title {
+  font-size: clamp(20px, 3vw, 26px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 20px 0;
+}
+.info-box-text {
+  color: #aaa;
+  font-size: clamp(15px, 2.5vw, 18px);
+  line-height: 1.9;
+  margin: 0;
+}
+.info-box-text .gold {
+  color: #b78e64;
+  font-weight: 500;
+}
+.cta-section {
+  text-align: center;
+  padding: 60px 0;
+}
+.cta-title {
+  font-size: clamp(22px, 4vw, 30px);
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 16px 0;
+}
+.cta-title .gold {
+  color: #b78e64;
+}
+.cta-desc {
+  color: #888;
+  font-size: clamp(15px, 2.5vw, 18px);
+  margin: 0 0 32px 0;
+}
+.cta-phone {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  color: #b78e64;
+  margin: 0 0 24px 0;
+  letter-spacing: 2px;
+}
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 48px;
+  border: 1px solid rgba(183, 142, 100, 0.4);
+  border-radius: 50px;
+  color: #b78e64;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transition: all 0.4s ease;
+  background: rgba(183, 142, 100, 0.08);
+  cursor: pointer;
+}
+.cta-btn:hover {
+  background: linear-gradient(135deg, #b78e64 0%, #8b6914 100%);
+  color: #fff;
+  border-color: #b78e64;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 40px rgba(183, 142, 100, 0.3);
+}
+.cta-btn-arrow {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+.cta-btn:hover .cta-btn-arrow {
+  transform: translateX(4px);
+}
+@media (max-width: 1024px) {
+  .step-arrow {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .refining-section {
     padding: 60px 16px;
   }
-  .k-section h2 {
-    font-size: 22px;
+  .refining-banner-inner {
+    grid-template-columns: 1fr;
+  }
+  .refining-banner-icon {
+    height: 180px;
+  }
+  .refining-banner-icon svg {
+    width: 140px;
+  }
+  .refining-banner-text {
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .process-header {
+    margin-bottom: 30px;
+  }
+  .process-header-bar {
+    height: 55px;
+  }
+  .process-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .process-step {
+    padding: 32px 24px;
+    min-height: 180px;
+  }
+  .step-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
+  }
+  .step-arrow {
+    display: none;
+  }
+  .info-box {
+    padding: 28px 20px;
+    border-radius: 20px;
+  }
+  .cta-section {
+    padding: 40px 0;
+  }
+  .cta-btn {
+    padding: 16px 36px;
+    font-size: 15px;
   }
 }
 </style>
-<div class="k-page-wrapper">
-  <div class="k-page-bg">
-    <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg" alt="" class="k-page-bg-img">
+<div class="refining-section">
+  <div class="refining-bg">
+    <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%B8%94%EB%9E%99%EB%B0%B0%EA%B2%BD.jpg" alt="" class="refining-bg-img">
   </div>
-  <div class="k-page-content">
-    <section class="k-section">
-      <h2>페이지 제목</h2>
-      <p>페이지 내용을 여기에 작성하세요.</p>
-    </section>
+  <div class="refining-content">
+    <div class="refining-header">
+      <span class="refining-badge">GOLD INSIGHT</span>
+      <h2 class="refining-title">
+        <span class="gold">금</span><span class="white">·</span><span class="silver">은</span> <span class="white">정련</span>
+      </h2>
+      <p class="refining-desc">
+        한국금거래소 FTC는 국내 유일의 유가금속 자원 재활용 전문 프로그램입니다<br>
+        고순도 금(999.9%)을 재활용하고 생산하는 혁신적인 시스템
+      </p>
+    </div>
+    <div class="refining-banner">
+      <div class="refining-banner-inner">
+        <div class="refining-banner-icon">
+          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
+            <rect x="20" y="100" width="50" height="30" rx="3" stroke="#888" stroke-width="2" fill="none"/>
+            <rect x="25" y="105" width="15" height="10" rx="1" stroke="#888" stroke-width="1.5" fill="none"/>
+            <circle cx="55" cy="115" r="6" stroke="#888" stroke-width="1.5" fill="none"/>
+            <path d="M85 115 L115 115" stroke="#b78e64" stroke-width="2"/>
+            <polygon points="110,110 120,115 110,120" fill="#b78e64"/>
+            <rect x="130" y="95" width="50" height="40" rx="4" stroke="#d4b896" stroke-width="2" fill="none"/>
+            <text x="155" y="120" text-anchor="middle" fill="#d4b896" font-size="14" font-weight="bold">999.9</text>
+            <path d="M145 60 L165 60 L165 90 L145 90 Z" stroke="#b78e64" stroke-width="2" fill="none"/>
+            <ellipse cx="155" cy="60" rx="10" ry="4" stroke="#b78e64" stroke-width="2" fill="none"/>
+            <path d="M140 50 Q155 35 170 50" stroke="#d4b896" stroke-width="1.5" fill="none"/>
+            <path d="M143 45 Q155 32 167 45" stroke="#d4b896" stroke-width="1.5" fill="none"/>
+            <line x1="155" y1="60" x2="155" y2="90" stroke="#b78e64" stroke-width="1" stroke-dasharray="3,2"/>
+          </svg>
+        </div>
+        <div class="refining-banner-text">
+          <h3 class="refining-banner-title">불순물 제거,<br><span class="gold">고순도 금·은</span> 탄생</h3>
+          <p class="refining-banner-desc">
+            저순도 금속을 고순도 999.9% 순금/순은으로<br>
+            정제하는 전문 서비스입니다.<br>
+            환경까지 고려한 자원 재활용 프로그램
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="process-section">
+      <div class="process-header">
+        <div class="process-header-bar"></div>
+        <div>
+          <h2 class="process-title">정련 절차</h2>
+          <p class="process-sub">FTC REFINING PROCESS</p>
+        </div>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 28 C20 28 15 32 15 38 C15 44 20 48 26 48 L38 48 C44 48 49 44 49 38 C49 32 44 28 44 28"/>
+              <rect x="22" y="20" width="20" height="12" rx="2"/>
+              <rect x="26" y="24" width="5" height="4" rx="1"/>
+              <circle cx="39" cy="26" r="3"/>
+              <path d="M32 48 L32 56"/>
+              <path d="M26 56 L38 56"/>
+            </svg>
+          </div>
+          <h3 class="step-title">제품 입고</h3>
+          <p class="step-sub">Product Receipt</p>
+          <p class="step-desc">교환하기를 원하시는 골드바 원료<br>(14K, 18K, 저순도 주물금 등)를 제출</p>
+          <span class="step-arrow"></span>
+        </div>
+        <div class="process-step">
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="12" y="24" width="40" height="28" rx="3"/>
+              <rect x="18" y="30" width="20" height="10" rx="2"/>
+              <text x="28" y="38" text-anchor="middle" fill="none" stroke="#b78e64" stroke-width="0.8" font-size="8">129.0</text>
+              <circle cx="44" cy="35" r="4"/>
+              <line x1="32" y1="52" x2="32" y2="58"/>
+              <rect x="20" y="58" width="24" height="4" rx="1"/>
+              <path d="M8 20 L56 20"/>
+              <path d="M32 8 L32 20"/>
+              <ellipse cx="32" cy="8" rx="8" ry="4"/>
+            </svg>
+          </div>
+          <h3 class="step-title">중량 및 순도체크</h3>
+          <p class="step-sub">Weight and Purity Check</p>
+          <p class="step-desc">제품의 중량과 순도 산출결과를 바탕으로<br>골드바 원료의 교환 가치를 평가</p>
+          <span class="step-arrow"></span>
+        </div>
+        <div class="process-step">
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="12" y="8" width="40" height="48" rx="3"/>
+              <line x1="20" y1="18" x2="44" y2="18"/>
+              <line x1="20" y1="26" x2="44" y2="26"/>
+              <line x1="20" y1="34" x2="36" y2="34"/>
+              <circle cx="32" cy="46" r="8"/>
+              <path d="M28 46 L31 49 L38 42"/>
+            </svg>
+          </div>
+          <h3 class="step-title">분석 합의</h3>
+          <p class="step-sub">Agreed Analysis</p>
+          <p class="step-desc">교관 가격 및 조건에 대해<br>고객님과 협의 후 절차를 진행</p>
+          <span class="step-arrow"></span>
+        </div>
+        <div class="process-step">
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <path d="M24 20 L40 20 L44 56 L20 56 Z"/>
+              <ellipse cx="32" cy="20" rx="8" ry="4"/>
+              <path d="M26 36 Q32 32 38 36"/>
+              <path d="M28 42 Q32 38 36 42"/>
+              <path d="M16 56 Q12 48 16 40"/>
+              <path d="M12 52 Q8 44 12 36"/>
+              <path d="M48 56 Q52 48 48 40"/>
+              <path d="M52 52 Q56 44 52 36"/>
+              <rect x="26" y="8" width="12" height="8" rx="1"/>
+              <line x1="32" y1="4" x2="32" y2="8"/>
+            </svg>
+          </div>
+          <h3 class="step-title">FTC 정련 작업</h3>
+          <p class="step-sub">FTC Refining Program</p>
+          <p class="step-desc">요청하신 교환제품은 정련 작업을 통해<br>정제된 골드바로 제공</p>
+        </div>
+      </div>
+    </div>
+    <div class="info-box">
+      <h3 class="info-box-title">정련 서비스 안내</h3>
+      <p class="info-box-text">
+        <span class="gold">금 정련</span>: 장신구, 치과금, 금괴 등 모든 금 제품<br>
+        <span class="gold">은 정련</span>: 은제품, 은괴 등 모든 은 제품<br><br>
+        정련 결과물: 고순도 <span class="gold">999.9</span> 순금/순은
+      </p>
+    </div>
+    <div class="cta-section">
+      <h3 class="cta-title"><span class="gold">금·은 정련</span> 상담 신청</h3>
+      <p class="cta-phone">053-812-1112</p>
+      <p class="cta-desc">전화 또는 방문하여 상담받으실 수 있습니다</p>
+      <a href="tel:053-812-1112" class="cta-btn">
+        <span>전화 상담하기</span>
+        <span class="cta-btn-arrow">→</span>
+      </a>
+    </div>
   </div>
 </div>
