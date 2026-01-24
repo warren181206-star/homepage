@@ -99,18 +99,10 @@
   background: linear-gradient(145deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.9) 100%);
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
-.refining-banner-icon {
+.refining-banner-img {
   width: 100%;
   height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(145deg, rgba(25, 20, 15, 0.9) 0%, rgba(15, 12, 8, 0.95) 100%);
-}
-.refining-banner-icon svg {
-  width: 180px;
-  height: auto;
-  filter: drop-shadow(0 4px 20px rgba(183, 142, 100, 0.2));
+  object-fit: cover;
 }
 .refining-banner-text {
   display: flex;
@@ -321,11 +313,8 @@
   .refining-banner-inner {
     grid-template-columns: 1fr;
   }
-  .refining-banner-icon {
-    height: 180px;
-  }
-  .refining-banner-icon svg {
-    width: 140px;
+  .refining-banner-img {
+    height: 200px;
   }
   .refining-banner-text {
     padding: 28px 24px;
@@ -383,22 +372,7 @@
     </div>
     <div class="refining-banner">
       <div class="refining-banner-inner">
-        <div class="refining-banner-icon">
-          <svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg">
-            <rect x="20" y="100" width="50" height="30" rx="3" stroke="#888" stroke-width="2" fill="none"/>
-            <rect x="25" y="105" width="15" height="10" rx="1" stroke="#888" stroke-width="1.5" fill="none"/>
-            <circle cx="55" cy="115" r="6" stroke="#888" stroke-width="1.5" fill="none"/>
-            <path d="M85 115 L115 115" stroke="#b78e64" stroke-width="2"/>
-            <polygon points="110,110 120,115 110,120" fill="#b78e64"/>
-            <rect x="130" y="95" width="50" height="40" rx="4" stroke="#d4b896" stroke-width="2" fill="none"/>
-            <text x="155" y="120" text-anchor="middle" fill="#d4b896" font-size="14" font-weight="bold">999.9</text>
-            <path d="M145 60 L165 60 L165 90 L145 90 Z" stroke="#b78e64" stroke-width="2" fill="none"/>
-            <ellipse cx="155" cy="60" rx="10" ry="4" stroke="#b78e64" stroke-width="2" fill="none"/>
-            <path d="M140 50 Q155 35 170 50" stroke="#d4b896" stroke-width="1.5" fill="none"/>
-            <path d="M143 45 Q155 32 167 45" stroke="#d4b896" stroke-width="1.5" fill="none"/>
-            <line x1="155" y1="60" x2="155" y2="90" stroke="#b78e64" stroke-width="1" stroke-dasharray="3,2"/>
-          </svg>
-        </div>
+        <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EC%A0%95%EB%A0%A8%EB%B0%B0%EB%84%88.png" alt="금 정련 과정" class="refining-banner-img">
         <div class="refining-banner-text">
           <h3 class="refining-banner-title">불순물 제거,<br><span class="gold">고순도 금·은</span> 탄생</h3>
           <p class="refining-banner-desc">
