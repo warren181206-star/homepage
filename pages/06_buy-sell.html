@@ -287,6 +287,20 @@
   stroke-width: 1.5;
   fill: none;
 }
+.step-number {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #b78e64 0%, #d4b896 100%);
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 16px rgba(183, 142, 100, 0.3);
+}
 .step-title {
   font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
@@ -650,17 +664,9 @@
       </div>
       <div class="process-grid">
         <div class="process-step">
-          <div class="step-icon">
-            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="8" width="48" height="40" rx="3"/>
-              <circle cx="32" cy="28" r="10"/>
-              <line x1="32" y1="28" x2="32" y2="22"/>
-              <line x1="32" y1="28" x2="38" y2="28"/>
-              <rect x="18" y="48" width="28" height="8" rx="2"/>
-            </svg>
-          </div>
-          <h3 class="step-title">매장 방문</h3>
-          <p class="step-desc">매입할 물품을 가지고<br>매장에 방문해 주세요</p>
+          <div class="step-number">1</div>
+          <h3 class="step-title">상담</h3>
+          <p class="step-desc">전화 또는 방문 상담<br>매입 품목 안내</p>
           <span class="step-arrow"></span>
         </div>
         <div class="process-step">
