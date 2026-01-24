@@ -246,56 +246,68 @@
 }
 .process-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 20px;
 }
 .process-step {
-  background: linear-gradient(145deg, rgba(40, 40, 40, 0.6) 0%, rgba(25, 25, 25, 0.8) 100%);
+  background: linear-gradient(145deg, rgba(30, 30, 30, 0.8) 0%, rgba(20, 20, 20, 0.95) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 28px 20px;
+  border-radius: 16px;
+  padding: 40px 32px;
   text-align: center;
   position: relative;
-}
-.step-num {
-  width: 36px;
-  height: 36px;
-  background: linear-gradient(135deg, #b78e64 0%, #d4b896 100%);
-  border-radius: 50%;
+  min-height: 220px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 20px;
-  font-size: 16px;
-  font-weight: 700;
-  color: #0a0a0a;
+}
+.step-icon {
+  width: 72px;
+  height: 72px;
+  margin-bottom: 24px;
+}
+.step-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: #b78e64;
+  stroke-width: 1.5;
+  fill: none;
 }
 .step-title {
-  font-size: clamp(16px, 2.5vw, 20px);
+  font-size: clamp(18px, 3vw, 24px);
   font-weight: 700;
   color: #fff;
-  margin: 0 0 12px 0;
+  margin: 0 0 8px 0;
   line-height: 1.4;
+}
+.step-phone {
+  font-size: clamp(20px, 3.5vw, 28px);
+  font-weight: 700;
+  color: #b78e64;
+  margin: 8px 0 12px 0;
+  letter-spacing: 1px;
 }
 .step-desc {
   font-size: clamp(13px, 2vw, 15px);
-  color: #aaa;
+  color: #888;
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.8;
 }
 .step-arrow {
   position: absolute;
-  right: -14px;
+  right: -16px;
   top: 50%;
   transform: translateY(-50%);
   width: 0;
   height: 0;
-  border-top: 8px solid transparent;
-  border-bottom: 8px solid transparent;
-  border-left: 10px solid #666;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 12px solid #b78e64;
   z-index: 2;
 }
-.process-step:last-child .step-arrow {
+.process-step:nth-child(2) .step-arrow,
+.process-step:nth-child(4) .step-arrow {
   display: none;
 }
 .info-box {
@@ -441,11 +453,7 @@
   border: none;
 }
 @media (max-width: 1024px) {
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .process-step:nth-child(2) .step-arrow,
-  .process-step:nth-child(4) .step-arrow {
+  .step-arrow {
     display: none;
   }
 }
@@ -487,8 +495,13 @@
     gap: 16px;
   }
   .process-step {
-    padding: 24px 20px;
-    border-radius: 16px;
+    padding: 32px 24px;
+    min-height: 180px;
+  }
+  .step-icon {
+    width: 56px;
+    height: 56px;
+    margin-bottom: 20px;
   }
   .step-arrow {
     display: none;
@@ -598,27 +611,63 @@
       </div>
       <div class="process-grid">
         <div class="process-step">
-          <div class="step-num">1</div>
-          <h3 class="step-title">상담</h3>
-          <p class="step-desc">전화 또는 방문 상담<br>매입 품목 안내</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="8" width="48" height="40" rx="3"/>
+              <circle cx="32" cy="28" r="10"/>
+              <line x1="32" y1="28" x2="32" y2="22"/>
+              <line x1="32" y1="28" x2="38" y2="28"/>
+              <rect x="18" y="48" width="28" height="8" rx="2"/>
+            </svg>
+          </div>
+          <h3 class="step-title">매장 방문</h3>
+          <p class="step-desc">매입할 물품을 가지고<br>매장에 방문해 주세요</p>
           <span class="step-arrow"></span>
         </div>
         <div class="process-step">
-          <div class="step-num">2</div>
-          <h3 class="step-title">감정</h3>
-          <p class="step-desc">전문 감정사의<br>정확한 감정 평가</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="26" cy="36" r="16"/>
+              <line x1="38" y1="48" x2="52" y2="58"/>
+              <line x1="26" y1="28" x2="26" y2="44"/>
+              <line x1="18" y1="36" x2="34" y2="36"/>
+              <path d="M14 16 L26 8 L38 16"/>
+              <line x1="26" y1="8" x2="26" y2="20"/>
+            </svg>
+          </div>
+          <h3 class="step-title">전문 감정</h3>
+          <p class="step-desc">전문 감정사가<br>정확하게 감정합니다</p>
           <span class="step-arrow"></span>
         </div>
         <div class="process-step">
-          <div class="step-num">3</div>
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="32" cy="48" rx="24" ry="8"/>
+              <ellipse cx="32" cy="40" rx="24" ry="8"/>
+              <ellipse cx="32" cy="32" rx="24" ry="8"/>
+              <ellipse cx="32" cy="24" rx="24" ry="8"/>
+              <ellipse cx="32" cy="16" rx="24" ry="8"/>
+              <line x1="8" y1="16" x2="8" y2="48"/>
+              <line x1="56" y1="16" x2="56" y2="48"/>
+            </svg>
+          </div>
           <h3 class="step-title">시세 확인</h3>
-          <p class="step-desc">당일 실시간 시세<br>투명한 가격 제시</p>
+          <p class="step-desc">실시간 시세를 확인하고<br>투명하게 가격을 제시합니다</p>
           <span class="step-arrow"></span>
         </div>
         <div class="process-step">
-          <div class="step-num">4</div>
-          <h3 class="step-title">결제</h3>
-          <p class="step-desc">즉시 현금 지급<br>계좌 이체 가능</p>
+          <div class="step-icon">
+            <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+              <rect x="12" y="20" width="40" height="32" rx="3"/>
+              <rect x="12" y="28" width="40" height="4"/>
+              <circle cx="32" cy="12" r="6"/>
+              <line x1="32" y1="8" x2="32" y2="16"/>
+              <line x1="28" y1="12" x2="36" y2="12"/>
+              <rect x="20" y="40" width="24" height="6" rx="1"/>
+            </svg>
+          </div>
+          <h3 class="step-title">즉시 결제</h3>
+          <p class="step-desc">현금 또는 계좌이체로<br>즉시 결제해 드립니다</p>
         </div>
       </div>
     </div>
