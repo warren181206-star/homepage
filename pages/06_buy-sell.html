@@ -169,12 +169,17 @@
   height: 200px;
   overflow: hidden;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(20, 15, 10, 0.5) 0%, rgba(10, 8, 5, 0.7) 100%);
 }
 .category-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  max-height: 180px;
+  object-fit: contain;
   transition: transform 0.5s ease;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.3));
 }
 .category-card:hover .category-img {
   transform: scale(1.1);
@@ -463,7 +468,10 @@
     gap: 20px;
   }
   .category-img-wrap {
-    height: 180px;
+    height: 160px;
+  }
+  .category-img {
+    max-height: 140px;
   }
   .category-info {
     padding: 20px;
@@ -541,7 +549,7 @@
       <div class="category-grid">
         <div class="category-card">
           <div class="category-img-wrap">
-            <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EA%B8%88%EB%A7%A4%EC%9E%85.jpg" alt="금매입" class="category-img">
+            <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/gold-jewelry.png" alt="금매입" class="category-img">
           </div>
           <div class="category-info">
             <h4 class="category-name">금매입</h4>
@@ -554,7 +562,7 @@
         </div>
         <div class="category-card">
           <div class="category-img-wrap">
-            <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EC%9D%80%EB%A7%A4%EC%9E%85.jpg" alt="은매입" class="category-img">
+            <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/silver-set.png" alt="은매입" class="category-img">
           </div>
           <div class="category-info">
             <h4 class="category-name">은매입</h4>
@@ -567,7 +575,7 @@
         </div>
         <div class="category-card">
           <div class="category-img-wrap">
-            <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/%EB%8B%A4%EC%9D%B4%EC%95%84%EB%AA%AC%EB%93%9C.jpg" alt="다이아몬드" class="category-img">
+            <img src="https://raw.githubusercontent.com/warren181206-star/homepage/main/images/diamond.png" alt="다이아몬드" class="category-img">
           </div>
           <div class="category-info">
             <h4 class="category-name">다이아몬드</h4>
